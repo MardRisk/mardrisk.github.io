@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MardRisk AI — Financial Risk Assistant</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="loader" class="loader-wrap">
+    <div class="loader-card">
+      <div class="spinner"></div>
+      <div class="loader-title">MardRisk AI</div>
+      <div class="loader-sub">Loading fintech experience...</div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html"><span class="brand-mark">M</span> MardRisk AI</a>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+      <nav id="mobileNav">
+        <a href="index.html" data-i18n="nav_home">Գլխավոր</a>
+        <a href="roadmap.html" data-i18n="nav_roadmap">Roadmap</a>
+        <a href="materials.html" data-i18n="nav_materials">Ֆինանսական նյութեր</a>
+        <a href="#premium" data-i18n="nav_premium">Premium</a>
+        <a href="#cta" class="nav-btn" data-i18n="try_now">Փորձել հիմա</a>
+        <div class="mobile-lang-switch">
+          <button class="lang active" data-lang="hy">HY</button>
+          <button class="lang" data-lang="en">EN</button>
+          <button class="lang" data-lang="ru">RU</button>
+        </div>
+      </nav>
+      
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">AI • FINTECH • TELEGRAM</div>
+          <h1 data-i18n="hero_title">Քո ֆինանսական ռիսկը՝ պարզ, արագ և հասկանալի</h1>
+          <p class="lead" data-i18n="hero_text">MardRisk AI-ը օգնում է հասկանալ քո ֆինանսական վիճակը, վերահսկել ծախսերը և ստանալ AI խորհրդատվություն՝ ավելի խելացի որոշումների համար։</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#cta" data-i18n="try_now">Փորձել հիմա</a>
+            <a class="btn btn-secondary" href="roadmap.html" data-i18n="view_roadmap">Տեսնել Roadmap-ը</a>
+          </div>
+          <div class="stats-row">
+            <div class="stat"><strong>24/7</strong><span data-i18n="stat_1">AI աջակցություն</span></div>
+            <div class="stat"><strong>3</strong><span data-i18n="stat_2">լեզու</span></div>
+            <div class="stat"><strong>PDF</strong><span data-i18n="stat_3">հաշվետվություններ</span></div>
+          </div>
+        </div>
+        <div class="phone-mockup">
+          <div class="screen">
+            <div class="screen-top">
+              <span>Risk Score</span>
+              <span class="pill">Stable</span>
+            </div>
+            <div class="gauge-wrap">
+              <div class="gauge"><span>42</span></div>
+            </div>
+            <div class="cards">
+              <div class="mini-card"><small>Income</small><strong>320,000 AMD</strong></div>
+              <div class="mini-card"><small>Savings</small><strong>85,000 AMD</strong></div>
+              <div class="mini-card"><small>Debt</small><strong>40,000 AMD</strong></div>
+              <div class="mini-card"><small>AI Advice</small><strong>Reduce impulse buys</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow" data-i18n="benefits_label">Հիմնական հնարավորություններ</span>
+          <h2 data-i18n="benefits_title">Գեղեցիկ ներկայացված, հասկանալի ֆունկցիաներ</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card"><h3 data-i18n="f1_title">Risk Score</h3><p data-i18n="f1_text">Ստացիր քո ֆինանսական ռիսկի գնահատականը վայրկյանների ընթացքում։</p></article>
+          <article class="feature-card"><h3 data-i18n="f2_title">Expense Tracking</h3><p data-i18n="f2_text">Գրանցիր ծախսերդ և հասկացիր որտեղ է գնում քո գումարը։</p></article>
+          <article class="feature-card"><h3 data-i18n="f3_title">Goals</h3><p data-i18n="f3_text">Սահմանիր ֆինանսական նպատակներ և հետևիր ընթացքին։</p></article>
+          <article class="feature-card"><h3 data-i18n="f4_title">AI Advice</h3><p data-i18n="f4_text">Ստացիր անհատական խորհուրդներ՝ քո տվյալների հիման վրա։</p></article>
+          <article class="feature-card"><h3 data-i18n="f5_title">Purchase Check</h3><p data-i18n="f5_text">Ստուգիր՝ արդյոք այս պահին ճիշտ է որևէ գնում կատարել։</p></article>
+          <article class="feature-card"><h3 data-i18n="f6_title">Reports</h3><p data-i18n="f6_text">Ստացիր պարզ և գեղեցիկ PDF հաշվետվություններ։</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt-section" id="premium">
+      <div class="container pricing-grid">
+        <div>
+          <span class="eyebrow">FREE VS PREMIUM</span>
+          <h2 data-i18n="premium_title">Ընտրիր քեզ հարմար տարբերակը</h2>
+          <p class="muted" data-i18n="premium_text">Սկսիր անվճար, հետո ակտիվացրու ավելի խորը վերլուծություն և անսահմանափակ օգտագործում։</p>
+        </div>
+        <div class="price-card">
+          <h3>Free</h3>
+          <ul>
+            <li>Risk Score</li>
+            <li>Expense Tracking</li>
+            <li>Goals</li>
+            <li>15 actions / day</li>
+          </ul>
+        </div>
+        <div class="price-card featured">
+          <div class="badge">3900 AMD / month</div>
+          <h3>Premium</h3>
+          <ul>
+            <li>Deep AI advice</li>
+            <li>Financial planner</li>
+            <li>Unlimited usage</li>
+            <li>30-day reports</li>
+            <li>Smart notifications</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cta">
+      <div class="container cta-box">
+        <div>
+          <span class="eyebrow">START NOW</span>
+          <h2 data-i18n="cta_title">Սկսիր ավելի խելացի կառավարել քո ֆինանսները</h2>
+          <p data-i18n="cta_text">Միացիր MardRisk AI-ին և տես քո Risk Score-ը Telegram-ում։</p>
+        </div>
+        <a class="btn btn-primary" href="#" data-i18n="telegram_btn">Բացել Telegram-ում</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© 2026 MardRisk AI</div>
+      <div class="footer-links">
+        <a href="roadmap.html" data-i18n="footer_roadmap">Roadmap</a>
+        <a href="materials.html" data-i18n="footer_materials">Ֆինանսական նյութեր</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
