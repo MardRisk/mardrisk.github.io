@@ -1,146 +1,624 @@
 <!DOCTYPE html>
-<html lang="hy">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MardRisk AI — Financial Risk Assistant</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>MardRisk AI — Personal Finance Risk Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Clash+Display:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="loader" class="loader-wrap">
-    <div class="loader-card">
-      <div class="spinner"></div>
-      <div class="loader-title">MardRisk AI</div>
-      <div class="loader-sub">Loading fintech experience...</div>
+
+<div id="mesh">
+  <div class="mesh-orb orb1"></div>
+  <div class="mesh-orb orb2"></div>
+  <div class="mesh-orb orb3"></div>
+</div>
+
+
+<nav id="nav">
+  <div class="nav-logo" onclick="showPage('home')" style="cursor:pointer;">
+    <div class="logo-icon">
+<img src="assets/logo.png" alt="" srcset="" style="mix-blend-mode:darken;">    </div>
+    <div class="logo-text">MardRisk<span> AI</span></div>
+  </div>
+
+  <div class="nav-center">
+    <a class="nav-link active" onclick="showPage('home')"   data-en="Home"          data-hy="Գլխավոր"      data-ru="Главная">Home</a>
+    <a class="nav-link"       onclick="showPage('features')" data-en="Features"      data-hy="Հնարավորություններ"      data-ru="Функции">Features</a>
+    <a class="nav-link"       onclick="showPage('how')"     data-en="How It Works"  data-hy="Ինչպես է աշխատում"        data-ru="Как работает">How It Works</a>
+    <a class="nav-link"       onclick="showPage('pricing')" data-en="Pricing"       data-hy="Գներ"          data-ru="Цены">Pricing</a>
+    <a class="nav-link"       onclick="showPage('contact')" data-en="Contact"       data-hy="Կապ"           data-ru="Контакт">Contact</a>
+  </div>
+
+  <div class="nav-right">
+    <div class="lang-sel">
+      <button class="lang-opt on"  onclick="setLang('en')">EN</button>
+      <button class="lang-opt"     onclick="setLang('hy')">ՀՅ</button>
+      <button class="lang-opt"     onclick="setLang('ru')">RU</button>
+    </div>
+    <a href="https://t.me/MardRiskAI_bot" target="_blank" class="btn-nav">
+      <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+      <span data-en="Open Bot" data-hy="Բոտ" data-ru="Открыть бот">Open Bot</span>
+    </a>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div id="mobile-menu">
+  <a class="mob-link" onclick="showPage('home');toggleMenu()">
+    <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+    <span data-en="Home" data-hy="Գլխավոր" data-ru="Главная">Home</span>
+  </a>
+  <a class="mob-link" onclick="showPage('features');toggleMenu()">
+    <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <span data-en="Features" data-hy="Հնարավորություններ" data-ru="Функции">Features</span>
+  </a>
+  <a class="mob-link" onclick="showPage('how');toggleMenu()">
+    <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <span data-en="How It Works" data-hy="Ինչպես է աշխատում" data-ru="Как работает">How It Works</span>
+  </a>
+  <a class="mob-link" onclick="showPage('pricing');toggleMenu()">
+    <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+    <span data-en="Pricing" data-hy="Գներ" data-ru="Цены">Pricing</span>
+  </a>
+  <a class="mob-link" onclick="showPage('contact');toggleMenu()">
+    <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    <span data-en="Contact" data-hy="Կապ" data-ru="Контакт">Contact</span>
+  </a>
+
+  <div class="mob-divider"></div>
+
+  <div class="mob-lang">
+    <button class="mob-lang-btn on" onclick="setLang('en')">🇬🇧 English</button>
+    <button class="mob-lang-btn"    onclick="setLang('hy')">🇦🇲 Հայերեն</button>
+    <button class="mob-lang-btn"    onclick="setLang('ru')">🇷🇺 Русский</button>
+  </div>
+
+  <a href="https://t.me/MardRiskAI_bot" target="_blank" class="mob-cta">
+    <svg style="width:20px;height:20px;fill:#fff;" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 14.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
+    <span data-en="Open @MardRiskAI_bot" data-hy="Բացել @MardRiskAI_bot" data-ru="Открыть @MardRiskAI_bot">Open @MardRiskAI_bot</span>
+  </a>
+</div>
+
+<!-- ╔══════════════════════════════════════════════════════════════╗
+     ║  PAGE: HOME                                                  ║
+     ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="page active" id="page-home">
+
+  <!-- Hero -->
+  <section id="home-hero">
+    <div class="hero-badge">
+      <span class="badge-chip" data-en="AI-Powered" data-hy="AI-ի Ուժով" data-ru="На базе AI">AI-Powered</span>
+      <span data-en="Now live on Telegram · @MardRiskAI_bot" data-hy="Հասանելի Telegram-ում · @MardRiskAI_bot" data-ru="Доступен в Telegram · @MardRiskAI_bot">Now live on Telegram · @MardRiskAI_bot</span>
+    </div>
+    <div class="hero-title">
+      <div class="display">
+        <span data-en="Take Control of<br><em>Your Finances</em><br>with AI" data-hy="Կառավարի՛ր<br><em>Ֆինանսներդ</em><br>AI-ի Հետ" data-ru="Управляй<br><em>Финансами</em><br>с помощью AI">Take Control of<br><em>Your Finances</em><br>with AI</span>
+      </div>
+    </div>
+    <p class="hero-sub muted"
+       data-en="MardRisk AI is your intelligent financial risk advisor on Telegram. Get your personal risk score, avoid costly mistakes, and receive AI-driven advice — instantly, in 3 languages."
+       data-hy="MardRisk AI-ն ձեր խելացի ֆինանսական ռիսկ-խորհրդատուն է Telegram-ում։ Ստացեք անձնական ռիսկ-միավոր, խուսափեք ծախսատար սխալներից և AI-ի խորհուրդ ստացեք — ակնթարթայնորեն, 3 լեզվով։"
+       data-ru="MardRisk AI — ваш умный финансовый советник в Telegram. Получите персональный балл риска, избегайте дорогостоящих ошибок и получайте советы на основе AI — мгновенно, на 3 языках.">
+      MardRisk AI is your intelligent financial risk advisor on Telegram. Get your personal risk score, avoid costly mistakes, and receive AI-driven advice — instantly, in 3 languages.
+    </p>
+    <div class="hero-btns">
+      <a href="https://t.me/MardRiskAI_bot" target="_blank" class="btn-primary">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 14.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
+        <span data-en="Start on Telegram" data-hy="Բացել Telegram-ում" data-ru="Начать в Telegram">Start on Telegram</span>
+      </a>
+      <button class="btn-outline" onclick="showPage('how')">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        <span data-en="See How It Works" data-hy="Ինչպես է աշխատում" data-ru="Как это работает">See How It Works</span>
+      </button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-val">3</span>
+        <span class="stat-lbl" data-en="Languages" data-hy="Լեզու" data-ru="Языка">Languages</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-val">&lt;5s</span>
+        <span class="stat-lbl" data-en="Risk Score Speed" data-hy="Ռիսկի Գնահատման Արագություն" data-ru="Скорость Оценки">Risk Score Speed</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-val">AI</span>
+        <span class="stat-lbl" data-en="Powered Analysis" data-hy="AI-ի Ուժով Վերլուծություն" data-ru="Анализ">Powered Analysis</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-val">0</span>
+        <span class="stat-lbl" data-en="Apps to Install" data-hy="Ծրագիր Ներբեռնելու Կարիք" data-ru="Приложений">Apps to Install</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features quick -->
+  <section id="home-features">
+    <div class="section-head" style="text-align:center;margin-bottom:4rem;">
+      <div class="section-tag" data-en="Core Capabilities" data-hy="Հիմնական Հնարավորություններ" data-ru="Ключевые Возм.">Core Capabilities</div>
+      <div class="h2" data-en="Everything Your Finances Need" data-hy="Ամեն Ինչ Ձեր Ֆինանսների Համար" data-ru="Всё что нужно вашим финансам">Everything Your Finances Need</div>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-tile ac sr">
+        <div class="feat-ico">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3 data-en="Personal Risk Score" data-hy="Անձնական Ռիսկ-Միավոր" data-ru="Личный Балл Риска">Personal Risk Score</h3>
+        <p data-en="Get a real-time, personalized financial risk score based on your income, spending habits, and financial decisions." data-hy="Ստացեք ակնթարթային, անհատականացված ֆինանսական ռիսկ-միավոր՝ հիմնված ձեր եկամտի, ծախսման սովույթների և որոշումների վրա։" data-ru="Получите персональный балл риска в реальном времени на основе дохода, привычек трат и финансовых решений.">Get a real-time, personalized financial risk score based on your income, spending habits, and financial decisions.</p>
+      </div>
+      <div class="feat-tile cc sr d1">
+        <div class="feat-ico">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3 data-en="Purchase Risk Check" data-hy="Գնման Ռիսկի Ստուգում" data-ru="Проверка Покупки">Purchase Risk Check</h3>
+        <p data-en="Before making any purchase, ask the bot. It instantly evaluates whether it fits your financial profile and warns you of risks." data-hy="Ցանկացած գնում կատարելուց առաջ հարցրեք բոտին։ Այն անմիջապես գնահատում է, արդյոք դա համապատախանում է ձեր ֆինանսական պրոֆիլին և զգուշացնում ռիսկերի մասին։" data-ru="Перед любой покупкой спросите бота. Он мгновенно оценивает, соответствует ли она вашему финансовому профилю.">Before making any purchase, ask the bot. It instantly evaluates whether it fits your financial profile and warns you of risks.</p>
+      </div>
+      <div class="feat-tile bc sr d2">
+        <div class="feat-ico">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        </div>
+        <h3 data-en="AI Financial Advice" data-hy="AI Ֆինանսական Խորհուրդ" data-ru="Советы AI">AI Financial Advice</h3>
+        <p data-en="Personalized, actionable advice — not generic tips. Real guidance crafted specifically for your unique financial situation." data-hy="Անհատականացված, գործնական խորհուրդ — ոչ ընդհանուր տիպի։ Իրական ուղեցույց, ստեղծված հատուկ ձեր ֆինանսական իրավիճակի համար։" data-ru="Персональные, действенные советы — не шаблонные. Реальное руководство, созданное специально для вашей ситуации.">Personalized, actionable advice — not generic tips. Real guidance crafted specifically for your unique financial situation.</p>
+      </div>
+      <div class="feat-tile dc sr span2">
+        <div class="feat-ico">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <h3 data-en="Natural Conversation in 3 Languages" data-hy="Բնական Զրույց 3 Լեզվով" data-ru="Естественный Диалог на 3 Языках">Natural Conversation in 3 Languages</h3>
+        <p data-en="No forms, no dashboards. Just chat naturally in Telegram in English, Russian, or Armenian. Switch languages anytime — the bot understands all three fluently." data-hy="Ոչ ձևեր, ոչ dashboard-ներ։ Պարզապես բնական կերպով զրուցեք Telegram-ում՝ անգլերեն, ռուսերեն կամ հայերեն։ Ցանկացած պահի ընտրեք լեզու — բոտը հասկանում է բոլոր երեքը կատարյալ կերպով։" data-ru="Никаких форм и дашбордов. Просто общайтесь в Telegram на английском, русском или армянском. Меняйте язык в любой момент — бот отлично понимает все три.">No forms, no dashboards. Just chat naturally in Telegram in English, Russian, or Armenian. Switch languages anytime — the bot understands all three fluently.</p>
+      </div>
+      <div class="feat-tile ec sr">
+        <div class="feat-ico">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3 data-en="Instant Results" data-hy="Ակնթարթային Արդյունք" data-ru="Мгновенный Результат">Instant Results</h3>
+        <p data-en="Your risk score and advice in under 5 seconds. Make confident financial decisions fast." data-hy="Ձեր ռիսկ-միավորը և խորհուրդը 5 վայրկյանից էլ քիչ ժամանակում։ Արեք վստահ ֆինանսական որոշումներ արագ։" data-ru="Оценка и совет за 5 секунд. Принимайте финансовые решения уверенно и быстро.">Your risk score and advice in under 5 seconds. Make confident financial decisions fast.</p>
+      </div>
+      <div class="feat-tile fc sr d1">
+        <div class="feat-ico">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        </div>
+        <h3 data-en="Private & Secure" data-hy="Անձնական և Ապահով" data-ru="Приватно и Безопасно">Private & Secure</h3>
+        <p data-en="Your financial data stays within your Telegram conversation. No accounts, no data harvesting, no tracking." data-hy="Ձեր ֆինանսական տվյալները մնում են ձեր Telegram-ի զրույցում։ Ոչ հաշիվ, ոչ տվյալների հավաք, ոչ հետևում։" data-ru="Ваши финансовые данные остаются в Telegram-чате. Никаких аккаунтов, сбора данных и слежки.">Your financial data stays within your Telegram conversation. No accounts, no data harvesting, no tracking.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works mini -->
+  <section id="home-how">
+    <div class="section-head" style="text-align:center;margin-bottom:4rem;">
+      <div class="section-tag" data-en="How It Works" data-hy="Ինչպես Աշխատում Է" data-ru="Как Работает">How It Works</div>
+      <div class="h2" data-en="Ready in 4 Steps" data-hy="Պատրաստ 4 Քայլով" data-ru="Готово за 4 Шага">Ready in 4 Steps</div>
+    </div>
+    <div class="how-grid" style="max-width:1100px;margin:0 auto;">
+      <div class="how-steps sr">
+        <div class="how-step">
+          <div class="step-circle">1</div>
+          <div class="step-body">
+            <h4 data-en="Open the Telegram Bot" data-hy="Բացեք Telegram Բոտը" data-ru="Откройте Telegram Бота">Open the Telegram Bot</h4>
+            <p data-en="Find @MardRiskAI_bot, press Start and select your preferred language." data-hy="Գտեք @MardRiskAI_bot-ը, սեղմեք Start և ընտրեք ձեր նախընտրած լեզուն։" data-ru="Найдите @MardRiskAI_bot, нажмите Start и выберите язык.">Find @MardRiskAI_bot, press Start and select your preferred language.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="step-circle">2</div>
+          <div class="step-body">
+            <h4 data-en="Describe Your Finances" data-hy="Նկարագրեք Ձեր Ֆինանսները" data-ru="Опишите Финансы">Describe Your Finances</h4>
+            <p data-en="Tell the bot about your income, a purchase you're considering, or any financial decision." data-hy="Պատմեք բոտին ձեր եկամտի, նախատեսած գնման կամ ֆինանսական որոշման մասին։" data-ru="Расскажите боту о доходе, покупке или финансовом решении.">Tell the bot about your income, a purchase you're considering, or any financial decision.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="step-circle">3</div>
+          <div class="step-body">
+            <h4 data-en="AI Analyses in Seconds" data-hy="AI-ն Վերլուծում Է Վայրկյանում" data-ru="AI Анализирует">AI Analyses in Seconds</h4>
+            <p data-en="MardRisk AI processes your data using advanced financial intelligence models." data-hy="MardRisk AI-ն մշակում է ձեր տվյալները ֆինանսական ժամանակակից մոդելների միջոցով։" data-ru="MardRisk AI обрабатывает данные с помощью продвинутых финансовых моделей.">MardRisk AI processes your data using advanced financial intelligence models.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="step-circle">4</div>
+          <div class="step-body">
+            <h4 data-en="Get Score + Advice" data-hy="Ստացեք Միավոր + Խորհուրդ" data-ru="Получить Оценку + Совет">Get Score + Advice</h4>
+            <p data-en="Receive your risk score with a detailed breakdown and clear, actionable recommendations." data-hy="Ստացեք ռիսկ-միավոր մանրամասն վերլուծությամբ և հստակ, գործնական առաջարկություններով։" data-ru="Получите балл риска с детальной разбивкой и чёткими рекомендациями.">Receive your risk score with a detailed breakdown and clear, actionable recommendations.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat demo -->
+      <div class="chat-mockup sr d2">
+        <div class="chat-topbar">
+          <div class="chat-ava"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <div class="chat-info">
+            <div class="name">MardRisk AI</div>
+            <div class="online"><span class="online-dot"></span><span data-en="Online · AI Active" data-hy="Առցանց · AI Ակտիվ" data-ru="В сети · AI активен">Online · AI Active</span></div>
+          </div>
+        </div>
+        <div class="chat-msgs">
+          <div class="cm bot" data-en="👋 Hi! I'm MardRisk AI. Describe your financial situation or a purchase and I'll give you your personal risk score." data-hy="👋 Բարև! Ես MardRisk AI-ն եմ։ Նկարագրեք ձեր ֆինանսական իրավիճակը կամ գնումը, և ես կտամ ձեր անձնական ռիսկ-միավորը։" data-ru="👋 Привет! Я MardRisk AI. Опишите вашу ситуацию или покупку, и я дам вам персональный балл риска.">👋 Hi! I'm MardRisk AI. Describe your financial situation or a purchase and I'll give you your personal risk score.</div>
+          <div class="cm usr" data-en="I want to buy a new iPhone for $1,200. My monthly salary is $2,000." data-hy="Ուզում եմ iPhone գնել $1,200-ով։ Ամսական աշխատավարձս $2,000 է։" data-ru="Хочу купить iPhone за $1,200. Моя зарплата $2,000 в месяц.">I want to buy a new iPhone for $1,200. My monthly salary is $2,000.</div>
+          <div class="cm res">
+            <div class="risk-display">
+              <div class="risk-num">72<span style="font-size:1rem;color:var(--text2)">/100</span></div>
+              <div class="risk-tag" data-en="⚠️ Moderate Risk" data-hy="⚠️ Չափավոր Ռիսկ" data-ru="⚠️ Умеренный Риск">⚠️ Moderate Risk</div>
+              <div class="risk-br">
+                <div class="rb-row"><span class="rb-lbl" data-en="Affordability" data-hy="Հ." data-ru="Доступность">Affordability</span><div class="rb-track"><div class="rb-fill" style="width:60%;background:var(--e);"></div></div><span>60%</span></div>
+                <div class="rb-row"><span class="rb-lbl" data-en="Necessity" data-hy="Ա." data-ru="Необходимость">Necessity</span><div class="rb-track"><div class="rb-fill" style="width:35%;background:var(--c);"></div></div><span>35%</span></div>
+                <div class="rb-row"><span class="rb-lbl" data-en="Savings" data-hy="Խ." data-ru="Сбережения">Savings</span><div class="rb-track"><div class="rb-fill" style="width:78%;background:var(--d);"></div></div><span>78%</span></div>
+              </div>
+              <div class="risk-advice" data-en="💡 This purchase equals 60% of your monthly salary. Consider saving 2–3 months first to reduce financial strain." data-hy="💡 Այս գնումն արժե ձեր ամսական աշխատավարձի 60%-ը։ Խորհուրդ է սպասել 2–3 ամիս։" data-ru="💡 Покупка составляет 60% зарплаты. Рекомендую подождать 2–3 месяца, чтобы снизить нагрузку.">💡 This purchase equals 60% of your monthly salary. Consider saving 2–3 months first to reduce financial strain.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Languages -->
+  <section id="home-langs">
+    <div class="section-head" style="text-align:center;margin-bottom:3.5rem;">
+      <div class="section-tag" data-en="Multilingual" data-hy="Բազմալեզու" data-ru="Многоязычный">Multilingual</div>
+      <div class="h2" data-en="Speak Your Language" data-hy="Խոսեք Ձեր Լեզվով" data-ru="Говорите на своём языке">Speak Your Language</div>
+      <p class="muted" style="max-width:450px;margin:1rem auto 0;" data-en="Full support in 3 languages. Switch any time, even mid-conversation." data-hy="Ամբողջական աջակցություն 3 լեզվով։ Ցանկացած պահի ընտրեք, նույնիսկ զրույցի ընթացքում։" data-ru="Полная поддержка 3 языков. Переключайтесь в любой момент.">Full support in 3 languages. Switch any time, even mid-conversation.</p>
+    </div>
+    <div class="langs-wrap">
+      <div class="lang-card sr">
+        <span class="lang-flag">🇬🇧</span>
+        <div class="lang-nm" data-en="English" data-hy="Ա." data-ru="Английский">English</div>
+        <div class="lang-nat">English</div>
+      </div>
+      <div class="lang-card sr d1">
+        <span class="lang-flag">🇷🇺</span>
+        <div class="lang-nm" data-en="Russian" data-hy="Ռ." data-ru="Русский">Russian</div>
+        <div class="lang-nat">Русский</div>
+      </div>
+      <div class="lang-card sr d2">
+        <span class="lang-flag">🇦🇲</span>
+        <div class="lang-nm" data-en="Armenian" data-hy="Հ." data-ru="Армянский">Armenian</div>
+        <div class="lang-nat">Հայերեն</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="global-cta">
+    <div class="cta-inner sr">
+      <div class="section-tag" data-en="Get Started Free" data-hy="Սկսել Անվճար" data-ru="Начать Бесплатно">Get Started Free</div>
+      <div class="h2" data-en="Ready to Master<br>Your Finances?" data-hy="Պատրա՞ստ Եք Կառավարելու Ձեր Ֆինանսները?" data-ru="Готовы управлять<br>финансами?">Ready to Master<br>Your Finances?</div>
+      <p class="muted" style="margin-top:1rem;" data-en="Open MardRisk AI right now — free, no sign-up needed." data-hy="Բացեք MardRisk AI-ն հենց հիմա — անվճար, գրանցում պահանջվում չէ։" data-ru="Откройте MardRisk AI прямо сейчас — бесплатно, без регистрации.">Open MardRisk AI right now — free, no sign-up needed.</p>
+      <a href="https://t.me/MardRiskAI_bot" target="_blank" class="tg-btn">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 14.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
+        <span data-en="Open @MardRiskAI_bot" data-hy="Բ. @MardRiskAI_bot" data-ru="Открыть @MardRiskAI_bot">Open @MardRiskAI_bot</span>
+      </a>
+    </div>
+  </section>
+</div><!-- /page-home -->
+
+
+<!-- ╔══════════════════════════════════════════════════════════════╗
+     ║  PAGE: FEATURES                                              ║
+     ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="page" id="page-features">
+  <div class="page-hero">
+    <div class="section-tag" data-en="All Features" data-hy="Բոլոր Հնարավորությունները" data-ru="Все Функции">All Features</div>
+    <div class="h2" data-en="Powerful AI Tools<br>for Financial Safety" data-hy="Հզոր AI Գործիքներ<br>Ֆինանսական Անվտանգության Համար" data-ru="Мощные AI Инструменты<br>для Финансовой Безопасности">Powerful AI Tools<br>for Financial Safety</div>
+    <p class="muted" style="margin-top:1rem;" data-en="Every feature designed to help you make smarter financial decisions, understand your risk, and avoid costly mistakes." data-hy="Բոլոր հնարավորությունները նախատեսված են ձեզ օգնելու ֆինանսական ռիսկները նվազեցնելու և ավելի խելամիտ որոշումներ կայացնելու հարցում։" data-ru="Каждая функция создана, чтобы помочь принимать более грамотные финансовые решения и избегать ошибок.">Every feature designed to help you make smarter financial decisions, understand your risk, and avoid costly mistakes.</p>
+  </div>
+  <div class="big-grid">
+    <div class="big-card full sr" style="--ic:var(--a);--ic-bg:rgba(0,212,255,0.08);--ic-border:rgba(0,212,255,0.2);">
+      <div class="big-ico"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+      <h3 data-en="Personal Risk Score Engine" data-hy="Անձնական Ռիսկ-Միավորի Շարժիչ" data-ru="Движок Личного Балла Риска">Personal Risk Score Engine</h3>
+      <p data-en="Our AI analyses your financial data holistically — income, recurring expenses, savings rate, debt exposure, and spending patterns — then produces a single, easy-to-understand risk score from 0 to 100. Lower is better. Updated with every conversation." data-hy="Մեր AI-ն վերլուծում է ձեր ֆինանսական տվյալները ամբողջությամբ — եկամուտ, կրկնվող ծախսեր, խնայողության մակարդակ, պարտքի ռիսկ — ապա ստեղծում է հեշտ ըմբռնելի ռիսկ-միավոր 0-ից 100։ Ցածր արժեք — ավելի լավ է։" data-ru="Наш AI комплексно анализирует ваши финансы — доходы, расходы, сбережения, долги — и выдаёт понятный балл риска от 0 до 100. Обновляется с каждым сообщением.">Our AI analyses your financial data holistically — income, recurring expenses, savings rate, debt exposure, and spending patterns — then produces a single, easy-to-understand risk score from 0 to 100. Lower is better. Updated with every conversation.</p>
+      <div class="score-visual">
+        <div class="sv-box">
+          <div class="sv-label" data-en="Current Score" data-hy="Ընթացիկ Միավոր" data-ru="Текущий Балл">Current Score</div>
+          <div class="sv-val">72 / 100</div>
+          <div class="sv-bar"><div class="sv-fill" style="width:72%;"></div></div>
+        </div>
+        <div class="sv-box">
+          <div class="sv-label" data-en="Savings Health" data-hy="Խնայողությունների Վիճակ" data-ru="Здоровье Сбережений">Savings Health</div>
+          <div class="sv-val">Good</div>
+          <div class="sv-bar"><div class="sv-fill" style="width:82%;background:linear-gradient(90deg,var(--d),var(--a));"></div></div>
+        </div>
+        <div class="sv-box">
+          <div class="sv-label" data-en="Spending Risk" data-hy="Ծախսման Ռիսկ" data-ru="Риск Трат">Spending Risk</div>
+          <div class="sv-val">Medium</div>
+          <div class="sv-bar"><div class="sv-fill" style="width:55%;background:linear-gradient(90deg,var(--e),var(--c));"></div></div>
+        </div>
+        <div class="sv-box">
+          <div class="sv-label" data-en="Debt Exposure" data-hy="Պարտքի Ռիսկ" data-ru="Риск Долга">Debt Exposure</div>
+          <div class="sv-val">Low</div>
+          <div class="sv-bar"><div class="sv-fill" style="width:28%;background:linear-gradient(90deg,var(--d),var(--b));"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="big-card sr" style="--ic:var(--c);--ic-bg:rgba(255,92,135,0.08);--ic-border:rgba(255,92,135,0.2);">
+      <div class="big-ico"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+      <h3 data-en="Purchase Risk Checker" data-hy="Գնման Ռիսկի Ստուգիչ" data-ru="Проверка Риска Покупки">Purchase Risk Checker</h3>
+      <p data-en="Planning a big purchase? Ask the bot before you buy. Describe the item and price — it checks affordability, necessity, and financial fit, then gives you a green, yellow, or red signal." data-hy="Ծրագրո՞ւմ եք խոշոր գնում կատարել։ Հարցրեք բոտին նախ։ Նկարագրեք ապրանքն ու գինը — այն ստուգում է ձեր ֆինանսական կարողունակությունն ու անհրաժեշտությունը, ապա կտա կանաչ, դեղին կամ կարմիր ազդանշան։" data-ru="Планируете крупную покупку? Спросите бота до оплаты. Он проверит доступность, необходимость и финансовое соответствие.">Planning a big purchase? Ask the bot before you buy. Describe the item and price — it checks affordability, necessity, and financial fit, then gives you a green, yellow, or red signal.</p>
+    </div>
+
+    <div class="big-card sr d1" style="--ic:var(--b);--ic-bg:rgba(123,97,255,0.08);--ic-border:rgba(123,97,255,0.2);">
+      <div class="big-ico"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+      <h3 data-en="Personalized AI Advice" data-hy="Անհատականացված AI Խորհուրդ" data-ru="Персональные Советы AI">Personalized AI Advice</h3>
+      <p data-en="Not generic financial tips copied from a blog. MardRisk AI analyses your specific numbers and situation to generate advice tailored precisely to you — actionable steps you can take today." data-hy="Ոչ ընդհանուր ֆինանսական խոսքեր։ MardRisk AI-ն վերլուծում է ձեր կոնկրետ թվերն ու իրավիճակը և ֆինանսական խորհուրդ ձևավորում հատուկ ձեր համար — կոնկրետ քայլեր, որ կարող եք կատարել հենց այսօր։" data-ru="Не шаблонные советы из интернета. MardRisk AI анализирует ваши конкретные цифры и даёт точные рекомендации, применимые сегодня.">Not generic financial tips copied from a blog. MardRisk AI analyses your specific numbers and situation to generate advice tailored precisely to you — actionable steps you can take today.</p>
+    </div>
+
+    <div class="big-card sr" style="--ic:var(--d);--ic-bg:rgba(0,255,178,0.08);--ic-border:rgba(0,255,178,0.2);">
+      <div class="big-ico"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+      <h3 data-en="Real-Time Intelligence" data-hy="Ռեժիմ Ժամանակ Արդյունք" data-ru="Разведка в Реальном Времени">Real-Time Intelligence</h3>
+      <p data-en="No waiting for reports. MardRisk AI processes your input and delivers insights in under 5 seconds — faster than any human advisor." data-hy="Ոչ մի սպասում հաշվետվությունների համար։ MardRisk AI-ն մշակում է ձեր հարցը և տալիս արդյունք 5 վայրկյանից էլ քիչ ժամանակում — ավելի արագ, քան ցանկացած մարդ-խորհրդատու։" data-ru="Никакого ожидания. MardRisk AI обрабатывает запрос и даёт результат за 5 секунд — быстрее любого советника.">No waiting for reports. MardRisk AI processes your input and delivers insights in under 5 seconds — faster than any human advisor.</p>
+    </div>
+
+    <div class="big-card sr d1" style="--ic:var(--e);--ic-bg:rgba(255,184,0,0.08);--ic-border:rgba(255,184,0,0.2);">
+      <div class="big-ico"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+      <h3 data-en="Zero Data Collection" data-hy="Ոչ Տվյալների Հավաք" data-ru="Нулевой Сбор Данных">Zero Data Collection</h3>
+      <p data-en="MardRisk AI does not store, sell, or share your financial data. Everything stays inside your Telegram conversation — private, encrypted, and only yours." data-hy="MardRisk AI-ն ձեր ֆինանսական տվյալները չի պահում, չի վաճառում և չի կիսվում։ Ամեն ինչ մնում է ձեր Telegram-ի զրույցում — անձնական, կոդավորված և միայն ձեր սեփականությունը։" data-ru="MardRisk AI не хранит и не продаёт ваши финансовые данные. Всё остаётся в Telegram-чате — приватно и только ваше.">MardRisk AI does not store, sell, or share your financial data. Everything stays inside your Telegram conversation — private, encrypted, and only yours.</p>
+    </div>
+
+    <div class="big-card sr" style="--ic:#C77DFF;--ic-bg:rgba(199,125,255,0.08);--ic-border:rgba(199,125,255,0.2);">
+      <div class="big-ico"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+      <h3 data-en="3-Language Fluency" data-hy="3 Լեզվի Ամբողջական Իմացություն" data-ru="Владение 3 Языками">3-Language Fluency</h3>
+      <p data-en="English, Russian, and Armenian — full conversational fluency in all three. The bot never loses context when you switch languages mid-chat." data-hy="Անգլերեն, Ռուսերեն և Հայերեն — ամբողջական, բնական երկխոսություն երեք լեզվով։ Բոտը երբեք չի կորցնի ձեր զրույցի կոնտեքստը, երբ ընտրեք այլ լեզու։" data-ru="Английский, русский, армянский — полное понимание всех трёх. Бот не теряет контекст при смене языка.">English, Russian, and Armenian — full conversational fluency in all three. The bot never loses context when you switch languages mid-chat.</p>
+    </div>
+
+    <div class="big-card sr d1" style="--ic:var(--a);--ic-bg:rgba(0,212,255,0.08);--ic-border:rgba(0,212,255,0.2);">
+      <div class="big-ico"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      <h3 data-en="Financial Pattern Analysis" data-hy="Ֆինանսական Ձևաչափերի Վերլուծություն" data-ru="Анализ Финансовых Паттернов">Financial Pattern Analysis</h3>
+      <p data-en="The AI identifies patterns in how you describe your finances — spotting danger signs, overspending habits, and hidden risks before they become real problems." data-hy="AI-ն բացահայտում է ձևաչափեր ձեր ֆինանսների նկարագրության մեջ — նկատում է վտանգի նշաններ, ծախսերի չափից ավելի սովորություններ, թաքնված ռիսկեր, մինչ դրանք իրական խնդիրների վերածվեն։" data-ru="AI выявляет паттерны в ваших финансах — опасные признаки, привычки перерасхода и скрытые риски до того, как они станут проблемой.">The AI identifies patterns in how you describe your finances — spotting danger signs, overspending habits, and hidden risks before they become real problems.</p>
     </div>
   </div>
 
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="index.html"><span class="brand-mark">M</span> MardRisk AI</a>
-      <button class="menu-toggle" id="menuToggle">☰</button>
-      <nav id="mobileNav">
-        <a href="index.html" data-i18n="nav_home">Գլխավոր</a>
-        <a href="roadmap.html" data-i18n="nav_roadmap">Roadmap</a>
-        <a href="materials.html" data-i18n="nav_materials">Ֆինանսական նյութեր</a>
-        <a href="#premium" data-i18n="nav_premium">Premium</a>
-        <a href="https://t.me/MardRiskAi_bot/" class="nav-btn" data-i18n="try_now">Փորձել հիմա</a>
-        <div class="mobile-lang-switch">
-          <button class="lang active" data-lang="hy">HY</button>
-          <button class="lang" data-lang="en">EN</button>
-          <button class="lang" data-lang="ru">RU</button>
-        </div>
-      </nav>
-      
+  <section class="global-cta">
+    <div class="cta-inner sr">
+      <div class="h2" data-en="Try All Features Free" data-hy="Փորձեք Բոլոր Հնարավորությունները Անվճար" data-ru="Попробуйте все функции бесплатно">Try All Features Free</div>
+      <p class="muted" style="margin-top:1rem;" data-en="Start your financial risk journey on Telegram. Zero cost, zero commitment." data-hy="Սկսեք ձեր ֆինանսական ռիսկ-ուղեկիցն օգտագործել Telegram-ում։ Անվճար, առանց ոչ մի պայմանավորվածության։" data-ru="Начните путь к финансовой безопасности в Telegram. Бесплатно и без обязательств.">Start your financial risk journey on Telegram. Zero cost, zero commitment.</p>
+      <a href="https://t.me/MardRiskAI_bot" target="_blank" class="tg-btn">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 14.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
+        <span data-en="Open @MardRiskAI_bot" data-hy="Բ. @MardRiskAI_bot" data-ru="Открыть @MardRiskAI_bot">Open @MardRiskAI_bot</span>
+      </a>
     </div>
-  </header>
+  </section>
+</div><!-- /page-features -->
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">AI • FINTECH • TELEGRAM</div>
-          <h1 data-i18n="hero_title">Քո ֆինանսական ռիսկը՝ պարզ, արագ և հասկանալի</h1>
-          <p class="lead" data-i18n="hero_text">MardRisk AI-ը օգնում է հասկանալ քո ֆինանսական վիճակը, վերահսկել ծախսերը և ստանալ AI խորհրդատվություն՝ ավելի խելացի որոշումների համար։</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="https://t.me/MardRiskAi_bot" data-i18n="try_now">Փորձել հիմա</a>
-            <a class="btn btn-secondary" href="roadmap.html" data-i18n="view_roadmap">Տեսնել Roadmap-ը</a>
-          </div>
-          <div class="stats-row">
-            <div class="stat"><strong>24/7</strong><span data-i18n="stat_1">AI աջակցություն</span></div>
-            <div class="stat"><strong>3</strong><span data-i18n="stat_2">լեզու</span></div>
-            <div class="stat"><strong>PDF</strong><span data-i18n="stat_3">հաշվետվություններ</span></div>
-          </div>
-        </div>
-        <div class="phone-mockup">
-          <div class="screen">
-            <div class="screen-top">
-              <span>Risk Score</span>
-              <span class="pill">Stable</span>
-            </div>
-            <div class="gauge-wrap">
-              <div class="gauge"><span>42</span></div>
-            </div>
-            <div class="cards">
-              <div class="mini-card"><small>Income</small><strong>320,000 AMD</strong></div>
-              <div class="mini-card"><small>Savings</small><strong>85,000 AMD</strong></div>
-              <div class="mini-card"><small>Debt</small><strong>40,000 AMD</strong></div>
-              <div class="mini-card"><small>AI Advice</small><strong>Reduce impulse buys</strong></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow" data-i18n="benefits_label">Հիմնական հնարավորություններ</span>
-          <h2 data-i18n="benefits_title">Գեղեցիկ ներկայացված, հասկանալի ֆունկցիաներ</h2>
-        </div>
-        <div class="feature-grid">
-          <article class="feature-card"><h3 data-i18n="f1_title">Risk Score</h3><p data-i18n="f1_text">Ստացիր քո ֆինանսական ռիսկի գնահատականը վայրկյանների ընթացքում։</p></article>
-          <article class="feature-card"><h3 data-i18n="f2_title">Expense Tracking</h3><p data-i18n="f2_text">Գրանցիր ծախսերդ և հասկացիր որտեղ է գնում քո գումարը։</p></article>
-          <article class="feature-card"><h3 data-i18n="f3_title">Goals</h3><p data-i18n="f3_text">Սահմանիր ֆինանսական նպատակներ և հետևիր ընթացքին։</p></article>
-          <article class="feature-card"><h3 data-i18n="f4_title">AI Advice</h3><p data-i18n="f4_text">Ստացիր անհատական խորհուրդներ՝ քո տվյալների հիման վրա։</p></article>
-          <article class="feature-card"><h3 data-i18n="f5_title">Purchase Check</h3><p data-i18n="f5_text">Ստուգիր՝ արդյոք այս պահին ճիշտ է որևէ գնում կատարել։</p></article>
-          <article class="feature-card"><h3 data-i18n="f6_title">Reports</h3><p data-i18n="f6_text">Ստացիր պարզ և գեղեցիկ PDF հաշվետվություններ։</p></article>
-        </div>
-      </div>
-    </section>
+<!-- ╔══════════════════════════════════════════════════════════════╗
+     ║  PAGE: HOW IT WORKS                                          ║
+     ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="page" id="page-how">
+  <div class="page-hero">
+    <div class="section-tag" data-en="Step by Step" data-hy="Քայլ առ Քայլ" data-ru="Шаг за Шагом">Step by Step</div>
+    <div class="h2" data-en="How MardRisk AI Works" data-hy="Ինչպես Է Աշխատում MardRisk AI" data-ru="Как работает MardRisk AI">How MardRisk AI Works</div>
+    <p class="muted" style="margin-top:1rem;" data-en="Zero setup. No installation. Start inside Telegram and get results in under 30 seconds." data-hy="Ոչ մի կարգավորում, ոչ մի ներբեռնում։ Բացեք Telegram-ը և 30 վայրկյանից էլ քիչ ժամանակում ստացեք արդյունք։" data-ru="Никакой настройки. Никакой установки. Начните в Telegram и получите результат за 30 секунд.">Zero setup. No installation. Start inside Telegram and get results in under 30 seconds.</p>
+  </div>
 
-    <section class="section alt-section" id="premium">
-      <div class="container pricing-grid">
-        <div>
-          <span class="eyebrow">FREE VS PREMIUM</span>
-          <h2 data-i18n="premium_title">Ընտրիր քեզ հարմար տարբերակը</h2>
-          <p class="muted" data-i18n="premium_text">Սկսիր անվճար, հետո ակտիվացրու ավելի խորը վերլուծություն և անսահմանափակ օգտագործում։</p>
-        </div>
-        <div class="price-card">
-          <h3>Free</h3>
-          <ul>
-            <li>Risk Score</li>
-            <li>Expense Tracking</li>
-            <li>Goals</li>
-            <li>15 actions / day</li>
-          </ul>
-        </div>
-        <div class="price-card featured">
-          <div class="badge">3900 AMD / month</div>
-          <h3>Premium</h3>
-          <ul>
-            <li>Deep AI advice</li>
-            <li>Financial planner</li>
-            <li>Unlimited usage</li>
-            <li>30-day reports</li>
-            <li>Smart notifications</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="cta">
-      <div class="container cta-box">
-        <div>
-          <span class="eyebrow">START NOW</span>
-          <h2 data-i18n="cta_title">Սկսիր ավելի խելացի կառավարել քո ֆինանսները</h2>
-          <p data-i18n="cta_text">Միացիր MardRisk AI-ին և տես քո Risk Score-ը Telegram-ում։</p>
-        </div>
-        <a class="btn btn-primary" href="https://t.me/MardRiskAi_bot" data-i18n="telegram_btn">Բացել Telegram-ում</a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>© 2026 MardRisk AI</div>
-      <div class="footer-links">
-        <a href="roadmap.html" data-i18n="footer_roadmap">Roadmap</a>
-        <a href="materials.html" data-i18n="footer_materials">Ֆինանսական նյութեր</a>
+  <div class="hiw-timeline">
+    <div class="hiw-step sr">
+      <div class="hiw-num">1</div>
+      <div class="hiw-body">
+        <h3 data-en="Open @MardRiskAI_bot on Telegram" data-hy="Բացեք @MardRiskAI_bot-ը Telegram-ում" data-ru="Откройте @MardRiskAI_bot в Telegram">Open @MardRiskAI_bot on Telegram</h3>
+        <p data-en="Search for @MardRiskAI_bot in Telegram or click the link on this page. No registration, no email, no password — just tap Start and you're in." data-hy="Գտեք @MardRiskAI_bot-ը Telegram-ում կամ սեղմեք հղումն այս կայքում։ Ոչ մի գրանցում, ոչ մի մեյլ, ոչ մի գաղտնաբառ — պարզապես սեղմեք Start կոճակը և ամեն ինչ կսկսվի։" data-ru="Найдите @MardRiskAI_bot в Telegram или нажмите ссылку на этой странице. Без регистрации и пароля — просто нажмите Start.">Search for @MardRiskAI_bot in Telegram or click the link on this page. No registration, no email, no password — just tap Start and you're in.</p>
+        <div class="hiw-tip" data-en="✓ Available on all Telegram platforms" data-hy="✓ Հասանելի Telegram-ի բոլոր հարթակներում" data-ru="✓ Доступно на всех платформах Telegram">✓ Available on all Telegram platforms</div>
       </div>
     </div>
-  </footer>
+    <div class="hiw-step sr d1">
+      <div class="hiw-num">2</div>
+      <div class="hiw-body">
+        <h3 data-en="Choose Your Language" data-hy="Ընտրեք Ձեր Լեզուն" data-ru="Выберите Язык">Choose Your Language</h3>
+        <p data-en="The bot immediately asks you to select your preferred language: English, Russian, or Armenian. You can switch at any time, even in the middle of a conversation." data-hy="Բոտն անմիջապես հարցնում է, թե ձեր նախընտրած լեզուն ո՞րն է՝ անգլերեն, ռուսերեն կամ հայերեն։ Ցանկացած պահի կարող եք փոխել, նույնիսկ զրույցի ընթացքում։" data-ru="Бот сразу предлагает выбрать язык: английский, русский или армянский. Переключайтесь в любое время, даже в середине разговора.">The bot immediately asks you to select your preferred language: English, Russian, or Armenian. You can switch at any time, even in the middle of a conversation.</p>
+        <div class="hiw-tip" data-en="🇬🇧 EN · 🇷🇺 RU · 🇦🇲 ՀՅ" data-hy="🇬🇧 EN · 🇷🇺 RU · 🇦🇲 ՀՅ" data-ru="🇬🇧 EN · 🇷🇺 RU · 🇦🇲 ՀՅ">🇬🇧 EN · 🇷🇺 RU · 🇦🇲 ՀՅ</div>
+      </div>
+    </div>
+    <div class="hiw-step sr d2">
+      <div class="hiw-num">3</div>
+      <div class="hiw-body">
+        <h3 data-en="Describe Your Financial Situation" data-hy="Նկարագրեք Ձեր Ֆինանսական Իրավիճակը" data-ru="Опишите Финансовую Ситуацию">Describe Your Financial Situation</h3>
+        <p data-en="Tell the bot naturally — as if you're talking to a smart friend. Share your monthly income, a purchase you're considering, an expense concern, or any financial question you have. The more detail, the more precise the analysis." data-hy="Պատմեք բոտին բնական կերպով — ինչպես կխոսեիք խելացի ընկերոջ հետ։ Ասեք ձեր ամսական եկամուտը, նախատեսած գնումը կամ ֆինանսական ցանկացած հարց։ Ավելի շատ մանրամասն — ավելի ճշգրիտ վերլուծություն։" data-ru="Расскажите боту, как другу — естественно. Доход, планируемая покупка, беспокойство о расходах. Чем больше деталей, тем точнее анализ.">Tell the bot naturally — as if you're talking to a smart friend. Share your monthly income, a purchase you're considering, an expense concern, or any financial question you have. The more detail, the more precise the analysis.</p>
+        <div class="hiw-tip" data-en="💬 Natural language understood" data-hy="💬 Բնական լեզուն հասկացվում է" data-ru="💬 Понимает естественный язык">💬 Natural language understood</div>
+      </div>
+    </div>
+    <div class="hiw-step sr d3">
+      <div class="hiw-num">4</div>
+      <div class="hiw-body">
+        <h3 data-en="AI Processes Your Data" data-hy="AI-ն Մշակում Է Ձեր Տվյալները" data-ru="AI Обрабатывает Данные">AI Processes Your Data</h3>
+        <p data-en="MardRisk AI uses advanced financial intelligence models to evaluate your situation. It factors in affordability ratios, savings benchmarks, spending risk signals, and financial patterns to build a complete picture of your risk." data-hy="MardRisk AI-ն օգտագործում է ֆինանսական ժամանակակից մոդելներ ձեր իրավիճակը գնահատելու համար։ Հաշվի է առնվում ձեր ֆինանսական ամբողջ պատկերը՝ հնարավոր ծախսից մինչև ռիսկ-ազդանշաններ։" data-ru="MardRisk AI использует продвинутые финансовые модели для оценки ситуации. Учитываются показатели доступности, нормы сбережений, сигналы риска трат и финансовые паттерны.">MardRisk AI uses advanced financial intelligence models to evaluate your situation. It factors in affordability ratios, savings benchmarks, spending risk signals, and financial patterns to build a complete picture of your risk.</p>
+        <div class="hiw-tip" data-en="⚡ Results in under 5 seconds" data-hy="⚡ Արդյունքն ստացեք 5 վայրկյանում" data-ru="⚡ Результат за 5 секунд">⚡ Results in under 5 seconds</div>
+      </div>
+    </div>
+    <div class="hiw-step sr">
+      <div class="hiw-num">5</div>
+      <div class="hiw-body">
+        <h3 data-en="Receive Your Risk Score + Advice" data-hy="Ստացեք Ռիսկ-Միավոր + Խորհուրդ" data-ru="Получите Балл Риска + Советы">Receive Your Risk Score + Advice</h3>
+        <p data-en="You receive a clear risk score from 0–100 with a breakdown by category, a plain-language verdict (Low / Moderate / High Risk), and specific, actionable advice on what to do next — all in one message." data-hy="Ստանում եք հստակ ռիսկ-միավոր 0-ից 100, կատեգորիաների բաժանումով, ըմբռնելի եզրակացություն (Ցածր / Չափավոր / Բարձր Ռիսկ) և կոնկրետ, գործնական խորհուրդ — ամեն ինչ մեկ հաղորդագրությամբ։" data-ru="Вы получаете чёткий балл от 0 до 100 с разбивкой по категориям, вердикт (Низкий / Средний / Высокий риск) и конкретные рекомендации — всё в одном сообщении.">You receive a clear risk score from 0–100 with a breakdown by category, a plain-language verdict (Low / Moderate / High Risk), and specific, actionable advice on what to do next — all in one message.</p>
+        <div class="hiw-tip" data-en="📊 Score · Breakdown · Advice" data-hy="📊 Միավոր · Վերլուծություն · Խորհուրդ" data-ru="📊 Балл · Разбивка · Советы">📊 Score · Breakdown · Advice</div>
+      </div>
+    </div>
+  </div>
 
-  <script src="script.js"></script>
-</body>
-</html>
+  <section class="global-cta">
+    <div class="cta-inner sr">
+      <div class="h2" data-en="See It for Yourself" data-hy="Տեսեք Ձեր Աչքերով" data-ru="Убедитесь Сами">See It for Yourself</div>
+      <p class="muted" style="margin-top:1rem;" data-en="Try MardRisk AI in Telegram right now. Free, instant, no sign-up." data-hy="Փորձեք MardRisk AI-ն Telegram-ում հենց հիմա։ Անվճար, ակնթարթային, առանց գրանցման։" data-ru="Попробуйте MardRisk AI прямо сейчас. Бесплатно, мгновенно, без регистрации.">Try MardRisk AI in Telegram right now. Free, instant, no sign-up.</p>
+      <a href="https://t.me/MardRiskAI_bot" target="_blank" class="tg-btn">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 14.617l-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.828.942z"/></svg>
+        <span data-en="Open @MardRiskAI_bot" data-hy="Բ. @MardRiskAI_bot" data-ru="Открыть @MardRiskAI_bot">Open @MardRiskAI_bot</span>
+      </a>
+    </div>
+  </section>
+</div><!-- /page-how -->
+
+
+<!-- ╔══════════════════════════════════════════════════════════════╗
+     ║  PAGE: PRICING                                               ║
+     ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="page" id="page-pricing">
+  <div class="page-hero">
+    <div class="section-tag" data-en="Pricing" data-hy="Գներ" data-ru="Цены">Pricing</div>
+    <div class="h2" data-en="Simple, Transparent Pricing" data-hy="Պարզ, Թափանցիկ Գներ" data-ru="Простые, Прозрачные Цены">Simple, Transparent Pricing</div>
+    <p class="muted" style="margin-top:1rem;" data-en="Start free. Upgrade when you need more. No hidden fees, no surprises." data-hy="Սկսեք անվճար։ Բարձրացրեք մակարդակը երբ անհրաժեշտ է։ Ոչ մի թաքնված ծախս, ոչ մի անակնկալ։" data-ru="Начните бесплатно. Обновитесь, когда потребуется. Без скрытых платежей.">Start free. Upgrade when you need more. No hidden fees, no surprises.</p>
+  </div>
+
+  <div class="price-grid">
+    <!-- Free -->
+    <div class="price-card sr">
+      <div class="price-name" data-en="Free" data-hy="Անվճար" data-ru="Бесплатно">Free</div>
+      <div class="price-val">$0</div>
+      <div class="price-per" data-en="Forever free" data-hy="Անվճար" data-ru="Навсегда бесплатно">Forever free</div>
+      <ul class="price-feats">
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Personal Risk Score" data-hy="Անձնական Ռիսկ-Միավոր" data-ru="Личный Балл Риска">Personal Risk Score</span></li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Purchase Risk Check" data-hy="Գնման Ռիսկի Ստուգիչ" data-ru="Проверка Покупки">Purchase Risk Check</span></li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-en="AI Financial Advice" data-hy="AI Ֆինանսական Խորհուրդ" data-ru="Советы AI">AI Financial Advice</span></li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-en="3 Language Support" data-hy="3 Լեզվի Ամբողջական Իմացություն" data-ru="3 Языка">3 Language Support</span></li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-en="No Registration Required" data-hy="Գրանցում Անհրաժեշտ Չէ" data-ru="Без Регистрации">No Registration Required</span></li>
+        <li class="off"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span data-en="Advanced Analytics" data-hy="Ընդլայնված Վերլուծություն" data-ru="Расширенная Аналитика">Advanced Analytics</span></li>
+        <li class="off"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg><span data-en="Priority Support" data-hy="Առաջնահերթ Աջակցություն" data-ru="Приоритетная Поддержка">Priority Support</span></li>
+      </ul>
+      <a href="https://t.me/MardRiskAI_bot" target="_blank" class="btn-outline" style="width:100%;justify-content:center;" data-en="Start Free" data-hy="Սկսել Անվճար" data-ru="Начать бесплатно">Start Free</a>
+    </div>
+
+    <!-- Pro -->
+    <div class="price-card pop sr d1">
+      <div class="pop-tag">
+        <svg viewBox="0 0 24 24" style="width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.5;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <span data-en="Most Popular" data-hy="Առաջարկվող" data-ru="Самый Популярный">Most Popular</span>
+      </div>
+      <div class="price-name" data-en="Pro" data-hy="Պրո" data-ru="Про">Pro</div>
+      <div class="price-val">$9.99</div>
+      <div class="price-per" data-en="per month" data-hy="ամսական" data-ru="в месяц">per month</div>
+      <ul class="price-feats">
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Everything in Free" data-hy="Ընդմիշտ Անվճար" data-ru="Всё из Free">Everything in Free</span></li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Unlimited Queries" data-hy="Ամենահայտնի" data-ru="Неограниченные Запросы">Unlimited Queries</span></li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Advanced Analytics" data-hy="Ընդլայնված Վերլուծություն" data-ru="Расширенная Аналитика">Advanced Analytics</span></li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Monthly Financial Report" data-hy="Ամսական Ֆինանսական Հաշվետվություն" data-ru="Ежемесячный Отчёт">Monthly Financial Report</span></li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Budget Planning Assistant" data-hy="Բյուջեի Պլանավորման Օգնական" data-ru="Помощник Бюджетирования">Budget Planning Assistant</span></li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Risk History Tracking" data-hy="Ռիսկ-Պատմության Հետևում" data-ru="История Рисков">Risk History Tracking</span></li>
+        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span data-en="Priority Support" data-hy="Առաջնահերթ Աջակցություն" data-ru="Приоритетная Поддержка">Priority Support</span></li>
+      </ul>
+      <a href="https://t.me/MardRiskAI_bot" target="_blank" class="btn-primary" style="width:100%;justify-content:center;" data-en="Get Pro" data-hy="Ստանալ Պրոն" data-ru="Получить Pro">Get Pro</a>
+    </div>
+  </div>
+</div><!-- /page-pricing -->
+
+
+<!-- ╔══════════════════════════════════════════════════════════════╗
+     ║  PAGE: CONTACT                                               ║
+     ╚══════════════════════════════════════════════════════════════╝ -->
+<div class="page" id="page-contact">
+  <div class="page-hero">
+    <div class="section-tag" data-en="Contact Us" data-hy="Կապ Հաստատեք Մեզ Հետ" data-ru="Свяжитесь с Нами">Contact Us</div>
+    <div class="h2" data-en="We'd Love to Hear from You" data-hy="Ուրախ Կլինենք Լսել Ձեզ" data-ru="Рады Услышать Вас">We'd Love to Hear from You</div>
+    <p class="muted" style="margin-top:1rem;" data-en="Questions, partnerships, feedback — reach out and we'll respond within 24 hours." data-hy="Հարցեր, Գործընկերություն, Հետադարձ կապ — Կապ հաստատեք, և մենք կպատասխանենք 24 ժամվա ընթացքում։" data-ru="Вопросы, партнёрство, обратная связь — напишите, и мы ответим в течение 24 часов.">Questions, partnerships, feedback — reach out and we'll respond within 24 hours.</p>
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="ci-item sr">
+        <div class="ci-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div>
+          <div class="ci-lbl" data-en="Email" data-hy="Էլ. Փոստ" data-ru="Email">Email</div>
+          <div class="ci-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="234b464f4f4c634e425147514a50480d424a">[email&#160;protected]</a></div>
+        </div>
+      </div>
+      <div class="ci-item sr d1">
+        <div class="ci-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <div>
+          <div class="ci-lbl" data-en="Telegram Bot" data-hy="Telegram Բոտ" data-ru="Telegram Бот">Telegram Bot</div>
+          <div class="ci-val">@MardRiskAI_bot</div>
+        </div>
+      </div>
+      <div class="ci-item sr d2">
+        <div class="ci-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div>
+          <div class="ci-lbl" data-en="Location" data-hy="հասցե" data-ru="Местонахождение">Location</div>
+          <div class="ci-val" data-en="Yerevan, Armenia" data-hy="Երևան, Հայաստան" data-ru="Ереван, Армения">Yerevan, Armenia</div>
+        </div>
+      </div>
+      <div class="ci-item sr d3">
+        <div class="ci-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div>
+          <div class="ci-lbl" data-en="Response Time" data-hy="Պատասխանի Ժամկետ" data-ru="Время Ответа">Response Time</div>
+          <div class="ci-val" data-en="Within 24 hours" data-hy="24 Ժամվա Ընթացքում" data-ru="В течение 24 часов">Within 24 hours</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form sr d1">
+      <h3 data-en="Send a Message" data-hy="Ուղարկել Հաղորդագրությունը" data-ru="Отправить Сообщение">Send a Message</h3>
+      <div class="form-row">
+        <div class="fgroup">
+          <label data-en="First Name" data-hy="Ա." data-ru="Имя">First Name</label>
+          <input type="text" placeholder="John">
+        </div>
+        <div class="fgroup">
+          <label data-en="Last Name" data-hy="Ա." data-ru="Фамилия">Last Name</label>
+          <input type="text" placeholder="Smith">
+        </div>
+      </div>
+      <div class="fgroup">
+        <label data-en="Email" data-hy="Էլ. Փոստ" data-ru="Email">Email</label>
+        <input type="email" placeholder="smartcontentaiofficial@gmail.com">
+      </div>
+      <div class="fgroup">
+        <label data-en="Subject" data-hy="Թեմա" data-ru="Тема">Subject</label>
+        <select>
+          <option data-en="General Question" data-hy="Ընդհանուր Հարց" data-ru="Общий Вопрос">General Question</option>
+          <option data-en="Partnership" data-hy="Գործընկերներ" data-ru="Партнёрство">Partnership</option>
+          <option data-en="Bug Report" data-hy="Բոլոր Հնարավորությունները" data-ru="Сообщить об ошибке">Bug Report</option>
+          <option data-en="Feature Request" data-hy="Հնարավորության Նախաձեռնություն" data-ru="Запрос Функции">Feature Request</option>
+        </select>
+      </div>
+      <div class="fgroup">
+        <label data-en="Message" data-hy="Հաղորդագրություն" data-ru="Сообщение">Message</label>
+        <textarea placeholder="..."></textarea>
+      </div>
+      <button class="btn-primary form-submit" onclick="alert('Message sent!')">
+        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        <span data-en="Send Message" data-hy="Ուղարկել Հաղորդագրությունը" data-ru="Отправить">Send Message</span>
+      </button>
+    </div>
+  </div>
+</div><!-- /page-contact -->
+
+
+<!-- ╔══ FOOTER ══╗ -->
+<footer id="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="nav-logo" style="cursor:default;">
+        <div class="logo-icon"><svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:none;stroke:#fff;stroke-width:2;"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="logo-text">MardRisk<span style="color:var(--a)"> AI</span></div>
+      </div>
+      <p data-en="Your intelligent financial risk advisor on Telegram. Get your risk score, avoid bad purchases, and receive AI-driven advice in 3 languages." data-hy="Ձեր խելացի ֆինանսական ռիսկ-խորհրդատուն Telegram-ում։ Ստացեք ռիսկ-միավոր, խուսափեք վատ գնումներից, ստացեք AI-ի խորհուրդ 3 լեզվով։" data-ru="Ваш умный финансовый советник в Telegram. Балл риска, защита от плохих покупок и AI-советы на 3 языках.">Your intelligent financial risk advisor on Telegram. Get your risk score, avoid bad purchases, and receive AI-driven advice in 3 languages.</p>
+    </div>
+    <div class="footer-col">
+      <h5 data-en="Navigate" data-hy="Navigate" data-ru="Navigate">Navigate</h5>
+      <ul>
+        <li><a onclick="showPage('home')" data-en="Home" data-hy="Գլխավոր" data-ru="Главная">Home</a></li>
+        <li><a onclick="showPage('features')" data-en="Features" data-hy="Հնարավորություններ" data-ru="Функции">Features</a></li>
+        <li><a onclick="showPage('how')" data-en="How It Works" data-hy="Ինչպես է աշխատում" data-ru="Как работает">How It Works</a></li>
+        <li><a onclick="showPage('pricing')" data-en="Pricing" data-hy="Գներ" data-ru="Цены">Pricing</a></li>
+        <li><a onclick="showPage('contact')" data-en="Contact" data-hy="Կապ" data-ru="Контакт">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5 data-en="Connect" data-hy="Կապ" data-ru="Связь">Connect</h5>
+      <ul>
+        <li><a href="https://t.me/MardRiskAI_bot" target="_blank">@MardRiskAI_bot</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#5e363b3232311e333f2c3a2c372d35703f37"><span class="__cf_email__" data-cfemail="660e030a0a09260b071402140f150d48070f">smartcontentaiofficial@gmail.com</span></a></li>
+        <li><a data-en="Yerevan, Armenia" data-hy="Երևան, Հայաստան" data-ru="Ереван, Армения">Yerevan, Armenia</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p data-en="© 2025 MardRisk AI. All rights reserved." data-hy="© 2026 MardRisk AI. Բոլոր իրավունքները պաշտպանված են." data-ru="© 2025 MardRisk AI. Все права защищены.">© 2025 MardRisk AI. All rights reserved.</p>
+    <p data-en=" Powered by SmartContentAI" data-hy="Ստեղծված է SmartContent AI Կողմից" data-ru="Создано на SmartContent AI">Built with AI · Powered by intelligence</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+</script></body></html>
