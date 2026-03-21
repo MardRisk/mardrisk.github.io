@@ -1,383 +1,529 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="/assets/logo.png">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Check Your Financial Risk in 60 Seconds | MardRisk AI</title>
-
-<meta name="description" content="AI analyzes your finances and shows your real risk score in seconds. Find out if you're financially safe or at risk.">
-<title>MardRisk AI — Know Your Financial Risk Before It Costs You</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>MardRisk AI — Check Your Financial Risk Before It's Too Late</title>
+<meta name="description" content="87% of people make bad financial decisions weekly. Check your personal risk score before it's too late. Free AI advisor on Telegram."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="icon" type="image/x-icon" href="/assets/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
 <!-- NAV -->
-<nav>
-  <div class="logo">Mard<span>Risk</span> AI</div>
-  <div class="nav-center">
-    <a href="#problem" data-i18n="nav_problem">Problem</a>
-    <a href="#how" data-i18n="nav_how">How it works</a>
-    <a href="#proof" data-i18n="nav_reviews">Reviews</a>
-    <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
-  </div>
-  <div class="nav-right">
-    <div class="lang-switcher">
-      <button class="lang-btn active" onclick="setLang('en')">EN</button>
-      <button class="lang-btn" onclick="setLang('hy')">ՀՅ</button>
-      <button class="lang-btn" onclick="setLang('ru')">RU</button>
+<nav id="mainNav">
+  <div class="nav-in">
+    <div class="logo">
+      
+      <span class="logo-name">MardRisk AI</span>
     </div>
-    <a href="https://t.me/MardRiskAI_bot" class="nav-cta" data-i18n="nav_cta">Check My Risk →</a>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#how">How It Works</a>
+      <a href="#voice">Voice AI</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-pill" id="navLP">
+        <button class="lpb on" data-l="en">EN</button>
+        <button class="lpb" data-l="hy">ՀՅ</button>
+        <button class="lpb" data-l="ru">RU</button>
+      </div>
+      <a href="https://t.me/MardRiskAI_bot" target="_blank" class="btn btn-dark btn-sm" id="navCta">Open Bot ↗</a>
+      <button class="ham" id="hamBtn">☰</button>
+    </div>
   </div>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#problem" onclick="closeMenu()" data-i18n="nav_problem">Problem</a>
-  <a href="#how" onclick="closeMenu()" data-i18n="nav_how">How it works</a>
-  <a href="#proof" onclick="closeMenu()" data-i18n="nav_reviews">Reviews</a>
-  <a href="#pricing" onclick="closeMenu()" data-i18n="nav_pricing">Pricing</a>
-  <div class="m-langs">
-    <button class="lang-btn active" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" onclick="setLang('hy')">ՀՅ</button>
-    <button class="lang-btn" onclick="setLang('ru')">RU</button>
+<!-- MOB OVERLAY -->
+<div class="mob-overlay" id="mobMenu">
+  <a href="#features" onclick="cM()">Features</a>
+  <a href="#how" onclick="cM()">How It Works</a>
+  <a href="#voice" onclick="cM()">Voice AI</a>
+  <a href="#pricing" onclick="cM()">Pricing</a>
+  <a href="#contact" onclick="cM()">Contact</a>
+  <a href="https://t.me/MardRiskAI_bot" target="_blank" class="btn btn-dark" style="margin-top:16px;">🚀 <span id="mNavCta">Open Telegram Bot</span></a>
+  <div class="mob-lp" id="mobLP">
+    <button class="lpb on" data-l="en">EN</button>
+    <button class="lpb" data-l="hy">ՀՅ</button>
+    <button class="lpb" data-l="ru">RU</button>
   </div>
-  <a href="https://t.me/MardRiskAI_bot" class="m-cta" data-i18n="nav_cta">Check My Risk — Free</a>
 </div>
 
-<!-- URGENCY BANNER -->
-<div class="urgency-bar">
-  <span class="blink">⚡</span>
-  <span data-i18n="urgency"><strong>Every day you wait = more money lost.</strong> Your risk score is free & ready in 5 seconds.</span>
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-bg-num" id="heroBgNum">72</div>
+
+  <div class="hero-inner container" style="max-width:1160px;margin:0 auto;padding:80px 40px;">
+    <div>
+      <div class="hero-eyebrow r0">
+        <div class="eye-dot"></div>
+        <span class="eye-text" id="eyebrowTxt">Live on Telegram · @MardRiskAI_bot</span>
+      </div>
+      <h1 class="r0 rd1" id="heroH">Most people lose money<br/>without <em>realizing it.</em><br/><span style="font-size:.62em;color:var(--mu);font-style:normal;">Check your financial risk<br/>before it's too late.</span></h1>
+      <p class="hero-sub r0 rd2" id="heroSub">MardRisk AI gives you a personal risk score in under 5 seconds — so you know exactly what every financial decision costs you, before you make it.</p>
+      <div class="hero-ctas r0 rd3">
+        <a href="https://t.me/MardRiskAI_bot" target="_blank" class="btn btn-green" id="heroCta1">🛡️ <span id="hc1">Check My Risk Score</span></a>
+        <a href="#voice" class="btn btn-outline" id="heroCta2">🎙️ <span id="hc2">Try Voice Demo</span></a>
+      </div>
+      <div class="trust-row r0 rd4" id="trustRow">Free forever · No sign-up · Results in 5 seconds</div>
+      <!-- SOCIAL PROOF BAR -->
+      <div class="social-proof-bar r0 rd5" id="spBar">
+        <div class="spb-avatars">
+          <div class="spb-av">👤</div><div class="spb-av">👤</div><div class="spb-av">👤</div><div class="spb-av">👤</div><div class="spb-av">👤</div>
+        </div>
+        <div class="spb-dot"></div>
+        <div class="spb-text" id="spBarTxt"><strong>1,000+</strong> people have already checked their Risk Score</div>
+      </div>
+    </div>
+
+    <div class="phone-wrap r0 rd2">
+      <div class="float-c fc-1">
+        <div class="fc-label" id="fc1l">Risk Score</div>
+        <div class="fc-val">72/100</div>
+        <div class="fc-sub" id="fc1s">⚠️ Moderate</div>
+      </div>
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="ph-head">
+            <div class="ph-av">🛡️</div>
+            <div>
+              <div class="ph-name">MardRisk AI</div>
+              <div class="ph-online" id="phOnline">● online</div>
+            </div>
+          </div>
+          <div class="ph-msgs">
+            <div class="pm pm-ai"><div class="pm-bbl" id="phMsg1">👋 Hi! Tell me your monthly income and usual spending — I'll show you what's at risk.</div></div>
+            <div class="pm pm-u"><div class="pm-bbl" id="phMsg2">Salary $2,000. I spend about $400 on food, $200 subscriptions, eating out often.</div></div>
+            <div class="pm pm-ai">
+              <div class="pm-bbl" id="phMsg3">⚠️ Analysis complete</div>
+              <div class="pm-score">
+                <div class="ps-top"><div class="ps-num" style="color:#FF6B35">84</div><div><div class="ps-label" style="color:#FF6B35" id="phRiskLabel">🔴 High Risk</div><div class="ps-sub" id="phRiskSub">out of 100</div></div></div>
+                <div class="ps-bl"><span id="phBar1L">Overspending</span><span>82%</span></div><div class="ps-bar"><div class="ps-fill" style="width:82%;background:#FF6B35"></div></div>
+                <div class="ps-bl"><span id="phBar2L">Subscriptions</span><span>67%</span></div><div class="ps-bar"><div class="ps-fill" style="width:67%;background:#FFBA47"></div></div>
+                <div class="ps-bl"><span id="phBar3L">Savings</span><span>12%</span></div><div class="ps-bar"><div class="ps-fill" style="width:12%;background:#FF6B35"></div></div>
+                <div class="ps-tip" id="phTip" style="color:#FF6B35;font-weight:600;">💸 At this rate you will lose $400 in 2 months.</div>
+              </div>
+            </div>
+          </div>
+          <div class="ph-input-row">
+            <input class="ph-inp" id="phInpPh" placeholder="Ask a financial question…" readonly/>
+            <div class="ph-send">↑</div>
+          </div>
+        </div>
+      </div>
+      <div class="float-c fc-2">
+        <div class="fc-label">Privacy</div>
+        <div class="fc-val" style="font-size:16px;">🔒 Zero Storage</div>
+        <div class="fc-sub" id="fc2s">Your data is safe</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track" id="tickerTrack">
+    <div class="tick-item"><div class="t-dot"></div><span id="tk1">Personal Risk Score</span></div>
+    <div class="tick-item"><div class="t-dot"></div><span id="tk2">Purchase Risk Check</span></div>
+    <div class="tick-item"><div class="t-dot"></div><span class="t-hl" id="tk3">AI Financial Advice</span></div>
+    <div class="tick-item"><div class="t-dot"></div><span id="tk4">Voice AI Advisor</span></div>
+    <div class="tick-item"><div class="t-dot"></div><span id="tk5">3 Languages</span></div>
+    <div class="tick-item"><div class="t-dot"></div><span class="t-hl" id="tk6">Zero Data Storage</span></div>
+    <div class="tick-item"><div class="t-dot"></div><span id="tk7">Instant Results</span></div>
+    <div class="tick-item"><div class="t-dot"></div><span id="tk8">Free to Start</span></div>
+    <!-- duplicate for seamless loop -->
+    <div class="tick-item"><div class="t-dot"></div><span>Personal Risk Score</span></div>
+    <div class="tick-item"><div class="t-dot"></div><span>Purchase Risk Check</span></div>
+    <div class="tick-item"><div class="t-dot"></div><span class="t-hl">AI Financial Advice</span></div>
+    <div class="tick-item"><div class="t-dot"></div><span>Voice AI Advisor</span></div>
+    <div class="tick-item"><div class="t-dot"></div><span>3 Languages</span></div>
+    <div class="tick-item"><div class="t-dot"></div><span class="t-hl">Zero Data Storage</span></div>
+    <div class="tick-item"><div class="t-dot"></div><span>Instant Results</span></div>
+    <div class="tick-item"><div class="t-dot"></div><span>Free to Start</span></div>
+  </div>
 </div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="live-pill">
-    <span class="live-dot"></span>
-    <span data-i18n="pill_pre">Today</span>&nbsp;<span class="counter-num" id="liveCount">—</span>&nbsp;<span data-i18n="pill_suf">people checked their risk</span>
-    <span class="live-updated" data-i18n="live_updated">· updated live</span>
-  </div>
-
-  <h1 data-i18n="h1">You Think You're <em>Fine.</em><br>Your Finances <span class="danger">Disagree.</span></h1>
-
-  <p class="hero-sub" data-i18n="hsub">Get your personal financial risk score <strong>instantly.</strong> AI-powered. No sign-up. <strong>Results in under 5 seconds.</strong></p>
-
-  <div class="urgency-line" data-i18n="urgline">Every day you delay costs you real money</div>
-
-  <div class="hero-actions">
-    <a href="https://t.me/MardRiskAI_bot" class="btn-primary">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.48 14.08l-2.95-.924c-.642-.204-.657-.642.136-.953l11.527-4.443c.534-.194 1.003.13.37.488z"/></svg>
-      <span data-i18n="cta_tg">Check My Risk — Free</span>
-    </a>
-    <a href="#how" class="btn-soft">🌐 <span data-i18n="cta_web">Web App Coming Soon</span></a>
-  </div>
-
-  <div class="instant-promise">
-    <span data-i18n="p1">No registration</span>
-    <span data-i18n="p2">Free forever</span>
-    <span data-i18n="p3">Results in 5 seconds</span>
-    <span data-i18n="p4">3 languages</span>
-  </div>
-
-  <!-- ANIMATED SCORE DEMO + 1-CLICK SCENARIOS -->
-  <div class="score-demo">
-    <div class="sdlabel">🔴 <span data-i18n="demo_lbl">Try a sample scenario</span></div>
-
-    <!-- 1-click demo chips -->
-    <div class="demo-scenarios">
-      <button class="demo-chip active" onclick="loadScenario(0)" data-i18n="sc0">💸 Overspending</button>
-      <button class="demo-chip" onclick="loadScenario(1)" data-i18n="sc1">📱 Big purchase</button>
-      <button class="demo-chip" onclick="loadScenario(2)" data-i18n="sc2">✅ Healthy saver</button>
-    </div>
-
-    <div class="score-track" style="margin-top:16px;"><div class="score-pointer" id="scorePointer"></div></div>
-    <div class="score-labels">
-      <span style="color:var(--green)" data-i18n="sl_safe">Safe</span>
-      <span style="color:var(--yellow)" data-i18n="sl_caution">Caution</span>
-      <span style="color:var(--red)" data-i18n="sl_danger">Danger</span>
-    </div>
-    <div class="score-value" id="scoreValue">78</div>
-    <div class="score-verdict" id="scoreVerdict">⚠️ High Risk — Action Required</div>
-
-    <div class="score-bars">
-      <div class="bar-row">
-        <span class="bar-label" data-i18n="b_spend">Spending</span>
-        <div class="bar-bg"><div class="bar-fill" id="bar1" style="width:0%;background:var(--red);"></div></div>
-        <span style="font-size:.75rem;color:var(--muted);width:30px;" id="bv1">78%</span>
-      </div>
-      <div class="bar-row">
-        <span class="bar-label" data-i18n="b_save">Savings</span>
-        <div class="bar-bg"><div class="bar-fill" id="bar2" style="width:0%;background:var(--yellow);"></div></div>
-        <span style="font-size:.75rem;color:var(--muted);width:30px;" id="bv2">18%</span>
-      </div>
-      <div class="bar-row">
-        <span class="bar-label" data-i18n="b_dec">Decisions</span>
-        <div class="bar-bg"><div class="bar-fill" id="bar3" style="width:0%;background:var(--accent);"></div></div>
-        <span style="font-size:.75rem;color:var(--muted);width:30px;" id="bv3">35%</span>
-      </div>
-    </div>
-
-    <div class="score-advice" id="scoreAdvice">💡 Your spending consumes most of your income. One surprise bill could leave you with nothing.</div>
-
-    <div style="margin-top:14px;text-align:center;">
-      <a href="https://t.me/MardRiskAI_bot" style="font-size:.8rem;color:var(--accent2);text-decoration:none;" data-i18n="demo_cta">→ Get your real score in Telegram</a>
+<!-- SHOCK BLOCK -->
+<div class="shock-block">
+  <div class="shock-inner">
+    <div class="shock-stat"><div class="s-blink"></div><span id="shockStat">⚠️ 87% of people make bad financial decisions weekly</span></div>
+    <h2 class="shock-q" id="shockQ">Are you <em>one of them?</em></h2>
+    <div class="shock-cta-row">
+      <a href="https://t.me/MardRiskAI_bot" target="_blank" class="btn-shock" id="shockCta">🛡️ <span id="shockCtaTxt">Check My Risk Score — Free</span></a>
     </div>
   </div>
-</section>
+</div>
 
-<!-- PROBLEM -->
-<section class="problem" id="problem">
-  <div class="section-tag" data-i18n="prob_tag">⚠ The Real Problem</div>
-  <h2 class="reveal" data-i18n="prob_h2">Most people don't know they're at risk.</h2>
-  <p class="problem-sub reveal" data-i18n="prob_sub">Until it's too late. Sound familiar?</p>
-  <div class="problem-cards">
-    <div class="problem-card reveal">
-      <div class="problem-icon">🔥</div>
-      <h3 data-i18n="pc1_t">You spend money without realizing</h3>
-      <p data-i18n="pc1_b">Small purchases add up. Subscriptions pile on. By the end of the month you wonder where it all went — but it's already gone.</p>
-    </div>
-    <div class="problem-card reveal">
-      <div class="problem-icon">🛒</div>
-      <h3 data-i18n="pc2_t">You make bad purchases</h3>
-      <p data-i18n="pc2_b">Impulse buys. "Good deals" that aren't. Purchases that feel fine in the moment but wreck your budget for weeks.</p>
-    </div>
-    <div class="problem-card reveal">
-      <div class="problem-icon">😶</div>
-      <h3 data-i18n="pc3_t">You think you're fine… but you're not</h3>
-      <p data-i18n="pc3_b">The most dangerous financial situation isn't obvious. Most people with serious risk feel completely normal — until they don't.</p>
+<!-- PROOF STATS -->
+<div class="container">
+  <div class="proof-section r0">
+    <div class="proof-tagline" id="proofTag">Trusted by smart money minds</div>
+    <div class="proof-stats">
+      <div class="ps-cell r0"><div class="ps-num">1<em>k</em>+</div><div class="ps-desc" id="ps1">People already checked their Risk Score</div></div>
+      <div class="ps-cell r0 rd1"><div class="ps-num">&lt;5<em>s</em></div><div class="ps-desc" id="ps2">Risk score delivered in seconds</div></div>
+      <div class="ps-cell r0 rd2"><div class="ps-num">3</div><div class="ps-desc" id="ps3">Languages: English, Armenian, Russian</div></div>
+      <div class="ps-cell r0 rd3"><div class="ps-num">$0</div><div class="ps-desc" id="ps4">To start. No credit card needed.</div></div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- WHY TRUST US -->
-<section class="trust">
-  <div class="trust-inner">
-    <div class="section-tag" style="background:rgba(124,106,247,.1);border-color:rgba(124,106,247,.3);color:var(--accent2);" data-i18n="trust_tag">🔒 Why Trust Us</div>
-    <h2 class="reveal" data-i18n="trust_h2">Built for privacy. Powered by AI.</h2>
-    <p class="trust-sub reveal" data-i18n="trust_sub">We handle financial data. Here's exactly how we keep it safe and useful.</p>
-    <div class="trust-grid">
-      <div class="trust-card reveal">
-        <div class="trust-icon">🔒</div>
-        <h4 data-i18n="tr1_t">Your data is private</h4>
-        <p data-i18n="tr1_b">Everything stays inside your Telegram conversation. Zero storage, zero data harvesting, zero sharing with third parties.</p>
+<!-- ══ FEATURES BENTO ══ -->
+<section id="features">
+  <div class="container">
+    <div class="section-label r0" id="featLabel">Features</div>
+    <h2 class="section-h r0 rd1" id="featH">Six tools.<br/><em>One bot.</em></h2>
+    <p class="section-s r0 rd2" id="featS">Everything you need to make confident financial decisions — without spreadsheets, advisors, or complicated apps.</p>
+
+    <div class="bento">
+      <!-- Card 1: Risk score — wide -->
+      <div class="bento-card wide r0">
+        <div class="bc-tag" id="bc1tag">Core Feature</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;">
+          <div>
+            <div class="bc-icon">📊</div>
+            <h3 class="bc-h" id="bc1h">Personal Risk Score</h3>
+            <p class="bc-p" id="bc1p">A real-time risk score from 0 to 100 that analyses your income, spending habits, debt exposure, and savings rate — giving you a single, clear verdict on any financial decision.</p>
+          </div>
+          <div class="mini-score">
+            <div class="ms-row"><div class="ms-num">72</div><div><div class="ms-tag" id="msTag">⚠️ Moderate Risk</div><div class="ms-sub" id="msSub">out of 100 · Higher = Riskier</div></div></div>
+            <div class="ms-bar"><div class="ms-bl"><span id="msb1">Affordability</span><span>60%</span></div><div class="ms-track"><div class="ms-fill" style="width:60%;background:#FFBA47"></div></div></div>
+            <div class="ms-bar"><div class="ms-bl"><span id="msb2">Necessity</span><span>35%</span></div><div class="ms-track"><div class="ms-fill" style="width:35%;background:#1A6BFF"></div></div></div>
+            <div class="ms-bar"><div class="ms-bl"><span id="msb3">Savings Buffer</span><span>78%</span></div><div class="ms-track"><div class="ms-fill" style="width:78%"></div></div></div>
+          </div>
+        </div>
       </div>
-      <div class="trust-card reveal">
-        <div class="trust-icon">🤖</div>
-        <h4 data-i18n="tr2_t">AI-based analysis</h4>
-        <p data-i18n="tr2_b">Not generic tips. Real AI models trained on financial patterns analyze your specific numbers and generate tailored insights.</p>
+
+      <!-- Card 2: purchase check -->
+      <div class="bento-card r0 rd1">
+        <div class="bc-icon">🛒</div>
+        <h3 class="bc-h" id="bc2h">Purchase Risk Check</h3>
+        <p class="bc-p" id="bc2p">Before any purchase, ask the bot. Describes the item and price — get a green, yellow, or red signal in seconds.</p>
+        <div class="lang-flags" style="margin-top:16px;">
+          <div class="lf">🟢 <span id="lfGo">Safe Buy</span></div>
+          <div class="lf">🟡 <span id="lfWarn">Risky</span></div>
+          <div class="lf">🔴 <span id="lfNo">Avoid</span></div>
+        </div>
       </div>
-      <div class="trust-card reveal">
-        <div class="trust-icon">📊</div>
-        <h4 data-i18n="tr3_t">Based on real patterns</h4>
-        <p data-i18n="tr3_b">Risk scores are calibrated against real financial behavior data — not arbitrary formulas or generic budgeting rules.</p>
+
+      <!-- Card 3: Voice AI -->
+      <div class="bento-card r0 rd2">
+        <div class="bc-tag" id="newBadge" style="background:rgba(26,107,255,.08);color:#1A6BFF;border-color:rgba(26,107,255,.18);">New</div>
+        <h3 class="bc-h" id="bc3h">Voice AI Advisor</h3>
+        <p class="bc-p" id="bc3p">Speak your question, hear the answer. Hands-free financial analysis in your language.</p>
+        <div class="voice-visual">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+            <button class="orb-btn" id="bentOrbBtn">🎙️</button>
+            <div class="mini-wave" id="bentWave">
+              <div class="mw-bar"></div><div class="mw-bar"></div><div class="mw-bar"></div>
+              <div class="mw-bar"></div><div class="mw-bar"></div><div class="mw-bar"></div>
+              <div class="mw-bar"></div><div class="mw-bar"></div><div class="mw-bar"></div>
+              <div class="mw-bar"></div>
+            </div>
+            <div class="mini-transcript" id="bentTranscript"><span id="bentTxt">Tap the mic to hear a demo…</span></div>
+          </div>
+        </div>
       </div>
-      <div class="trust-card reveal">
-        <div class="trust-icon">⚡</div>
-        <h4 data-i18n="tr4_t">Always up-to-date</h4>
-        <p data-i18n="tr4_b">Unlike annual credit checks, your risk score updates every time you talk to the bot. Financial health in real time.</p>
+
+      <!-- Card 4: 3 languages -->
+      <div class="bento-card r0 rd1">
+        <div class="bc-icon">🌐</div>
+        <h3 class="bc-h" id="bc4h">3-Language AI</h3>
+        <p class="bc-p" id="bc4p">Full fluency in English, Armenian, and Russian. Switch mid-conversation — the AI never loses context.</p>
+        <div class="lang-flags" style="margin-top:16px;">
+          <div class="lf">🇬🇧 English</div>
+          <div class="lf">🇦🇲 Հայերեն</div>
+          <div class="lf">🇷🇺 Русский</div>
+        </div>
+      </div>
+
+      <!-- Card 5: Privacy -->
+      <div class="bento-card r0 rd2">
+        <div class="bc-icon">🔒</div>
+        <h3 class="bc-h" id="bc5h">Private by Design</h3>
+        <p class="bc-p" id="bc5p">Your financial data stays inside your Telegram conversation. Zero data collection, zero accounts, zero tracking.</p>
+      </div>
+
+      <!-- Card 6: Web App -->
+      <div class="bento-card r0 rd3">
+        <div class="cs-chip">🌐 <span id="csCh">Coming Soon</span></div>
+        <h3 class="bc-h" id="bc6h">Web App</h3>
+        <p class="bc-p" id="bc6p">A full browser dashboard is coming — track history, view analytics, manage budget. No Telegram needed.</p>
+        <div class="webapp-preview">
+          <div class="wp-dots"><div class="wp-dot"></div><div class="wp-dot"></div><div class="wp-dot"></div></div>
+          <div class="wp-screen" id="wpScreen">🚧 In Development</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="how" id="how">
-  <div class="how-inner">
-    <div class="section-tag" style="background:rgba(124,106,247,.1);border-color:rgba(124,106,247,.3);color:var(--accent2);" data-i18n="how_tag">⚡ How It Works</div>
-    <h2 class="reveal" data-i18n="how_h2">30 seconds to your risk score</h2>
-    <p class="how-sub reveal" data-i18n="how_sub">No app. No registration. Just talk — results arrive before you finish your coffee.</p>
+<!-- ══ HOW IT WORKS ══ -->
+<section id="how">
+  <div class="container">
+    <div class="how-bg-line"></div>
+    <div class="section-label r0" id="howLabel" style="color:rgba(247,245,240,.28)"><span style="background:var(--g);display:inline-block;width:24px;height:1.5px;margin-right:14px;"></span>Process</div>
+    <h2 class="section-h r0 rd1" style="color:var(--paper);" id="howH">From question<br/>to <em>answer</em> in 30s</h2>
+    <p class="section-s r0 rd2" style="color:rgba(247,245,240,.45);" id="howS">Zero setup. No installation. Start inside Telegram and get your first analysis in under 30 seconds.</p>
+
     <div class="steps">
-      <div class="step reveal"><div class="step-num">1</div><h4 data-i18n="s1t">Open Telegram</h4><p data-i18n="s1b">Find @MardRiskAI_bot and tap Start</p></div>
-      <div class="step reveal"><div class="step-num">2</div><h4 data-i18n="s2t">Describe finances</h4><p data-i18n="s2b">Income, spending, or a purchase you're considering</p></div>
-      <div class="step reveal"><div class="step-num">3</div><h4 data-i18n="s3t">AI analyses</h4><p data-i18n="s3b">Advanced financial intelligence processes your situation</p></div>
-      <div class="step reveal"><div class="step-num">4</div><h4 data-i18n="s4t">Get your score</h4><p data-i18n="s4b">Risk score + actionable steps to improve it</p></div>
-    </div>
-    <div class="web-teaser reveal">
-      <p data-i18n="web_t">🌐 <strong>Web App coming soon</strong> — no Telegram needed. Check your risk directly in the browser. <a href="mailto:info@mardriskai.online" style="color:var(--accent2);text-decoration:none;" data-i18n="notify_me">Notify me →</a></p>
-      <a href="https://t.me/MardRiskAI_bot" class="btn-primary" style="font-size:.88rem;padding:11px 20px;display:inline-flex;">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.48 14.08l-2.95-.924c-.642-.204-.657-.642.136-.953l11.527-4.443c.534-.194 1.003.13.37.488z"/></svg>
-        <span data-i18n="avail_now">Available Now on Telegram</span>
-      </a>
+      <div class="step r0"><div class="step-circle">💬</div><div class="step-n">01</div><div class="step-t" id="st1t">Open the Bot</div><div class="step-d" id="st1d">Find @MardRiskAI_bot on Telegram. Tap Start — no registration, no email needed.</div></div>
+      <div class="step r0 rd1"><div class="step-circle">🌐</div><div class="step-n">02</div><div class="step-t" id="st2t">Choose Language</div><div class="step-d" id="st2d">Pick English, Armenian, or Russian. Switch anytime — even mid-conversation.</div></div>
+      <div class="step r0 rd2"><div class="step-circle">🗣️</div><div class="step-n">03</div><div class="step-t" id="st3t">Describe Finances</div><div class="step-d" id="st3d">Type or speak naturally — income, a purchase, a budget question. No forms, no fields.</div></div>
+      <div class="step r0 rd3"><div class="step-circle">🧠</div><div class="step-n">04</div><div class="step-t" id="st4t">AI Analyses</div><div class="step-d" id="st4d">Advanced financial intelligence processes your input using real risk models.</div></div>
+      <div class="step r0 rd4"><div class="step-circle">📊</div><div class="step-n">05</div><div class="step-t" id="st5t">Get Score + Advice</div><div class="step-d" id="st5d">Clear 0–100 risk score, category breakdown, and specific actionable next steps.</div></div>
     </div>
   </div>
 </section>
 
-<!-- BEFORE / AFTER -->
-<section class="before-after">
-  <div class="ba-inner">
-    <div class="section-tag" style="background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.2);color:var(--green);" data-i18n="ba_tag">📈 Before vs After</div>
-    <h2 class="reveal" data-i18n="ba_h2">What changes when you know your risk</h2>
-    <p class="ba-sub reveal" data-i18n="ba_sub">Most users see a shift in behavior within the first week.</p>
-    <div class="ba-cards reveal">
-      <div class="ba-card ba-before">
-        <div class="ba-tag" data-i18n="ba_before_tag">Before MardRisk</div>
-        <h4 data-i18n="ba_before_h">Flying blind</h4>
-        <div class="ba-item"><span class="ba-icon">❌</span><span data-i18n="ba_b1">No idea where money goes every month</span></div>
-        <div class="ba-item"><span class="ba-icon">❌</span><span data-i18n="ba_b2">Makes purchases based on gut feeling</span></div>
-        <div class="ba-item"><span class="ba-icon">❌</span><span data-i18n="ba_b3">Discovers problems only when it's too late</span></div>
-        <div class="ba-item"><span class="ba-icon">❌</span><span data-i18n="ba_b4">No savings buffer for emergencies</span></div>
-        <div class="ba-item"><span class="ba-icon">❌</span><span data-i18n="ba_b5">Risk score: Unknown (often 65–80)</span></div>
-      </div>
-      <div class="ba-card ba-after">
-        <div class="ba-tag" data-i18n="ba_after_tag">After MardRisk</div>
-        <h4 data-i18n="ba_after_h">In control</h4>
-        <div class="ba-item"><span class="ba-icon">✅</span><span data-i18n="ba_a1">Clear breakdown of spending by category</span></div>
-        <div class="ba-item"><span class="ba-icon">✅</span><span data-i18n="ba_a2">Checks risk before every big purchase</span></div>
-        <div class="ba-item"><span class="ba-icon">✅</span><span data-i18n="ba_a3">Spots danger patterns early, acts fast</span></div>
-        <div class="ba-item"><span class="ba-icon">✅</span><span data-i18n="ba_a4">Building 3-month emergency buffer</span></div>
-        <div class="ba-item"><span class="ba-icon">✅</span><span data-i18n="ba_a5">Risk score improved to 20–35 in weeks</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SOCIAL PROOF -->
-<section class="social" id="proof">
-  <div class="users-count reveal">
-    🔥 <span id="proofCount">—</span>&nbsp;<span data-i18n="proof_lbl">people checked their risk today</span>
-  </div>
-  <h2 class="reveal" data-i18n="proof_h2">Real people. Real results.</h2>
-  <p class="social-sub reveal" data-i18n="proof_sub">See what MardRisk AI uncovered for others</p>
-  <div class="testimonials">
-    <div class="testimonial reveal">
-      <div class="t-top"><div class="t-avatar">A</div><div><div class="t-name">Armen K.</div><div class="t-handle">Yerevan, Armenia 🇦🇲</div></div></div>
-      <p class="t-text" data-i18n="t1">"I thought I was managing fine. MardRisk gave me a 71 score and showed exactly where I was bleeding money. Saved my month."</p>
-      <div class="t-ba">
-        <div class="t-before">Risk 71</div>
-        <div class="t-arrow">→</div>
-        <div class="t-after">Risk 38</div>
-        <span style="font-size:.75rem;color:var(--muted);margin-left:4px;" data-i18n="t_weeks">in 3 weeks</span>
-      </div>
-    </div>
-    <div class="testimonial reveal">
-      <div class="t-top"><div class="t-avatar" style="background:#e85d04;">M</div><div><div class="t-name">Marina S.</div><div class="t-handle">Moscow, Russia 🇷🇺</div></div></div>
-      <p class="t-text" data-i18n="t2">"Asked about buying a laptop. Got a yellow warning and an alternative plan. Waited 3 weeks, bought smarter. Best financial advice I've ever gotten."</p>
-      <div class="t-ba">
-        <div class="t-before" style="background:rgba(245,197,24,.1);border-color:rgba(245,197,24,.3);color:var(--yellow);">⚠ Moderate</div>
-        <div class="t-arrow">→</div>
-        <div class="t-after">Saved $340</div>
-      </div>
-    </div>
-    <div class="testimonial reveal">
-      <div class="t-top"><div class="t-avatar" style="background:#0891b2;">D</div><div><div class="t-name">David M.</div><div class="t-handle">Tbilisi, Georgia 🇬🇪</div></div></div>
-      <p class="t-text" data-i18n="t3">"The score went red immediately and I didn't believe it. But it was right. Broke down my spending in a way I never saw. Eye-opening."</p>
-      <div class="t-ba">
-        <div class="t-before">Risk 82</div>
-        <div class="t-arrow">→</div>
-        <div class="t-after">Avoided loan</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FREE VS PRO -->
-<section class="pricing" id="pricing">
-  <div class="pricing-inner">
-    <div class="section-tag" style="background:rgba(124,106,247,.1);border-color:rgba(124,106,247,.3);color:var(--accent2);" data-i18n="price_tag">💎 Plans</div>
-    <h2 class="reveal" data-i18n="price_h2">Free vs Pro</h2>
-    <p class="pricing-sub reveal" data-i18n="price_sub">Start free. Upgrade when you're ready to go deeper.</p>
-    <div class="pricing-grid reveal">
-      <!-- FREE -->
-      <div class="plan plan-free">
-        <div class="plan-name" data-i18n="plan_free_name">Free</div>
-        <div class="plan-price">$0<span data-i18n="plan_free_period"> / forever</span></div>
-        <div class="plan-tagline" data-i18n="plan_free_tag">Everything you need to start</div>
-        <div class="plan-features">
-          <div class="plan-feature"><span class="pf-check yes">✓</span><span data-i18n="pf1">Personal Risk Score</span></div>
-          <div class="plan-feature"><span class="pf-check yes">✓</span><span data-i18n="pf2">Purchase Risk Check</span></div>
-          <div class="plan-feature"><span class="pf-check yes">✓</span><span data-i18n="pf3">AI Financial Advice</span></div>
-          <div class="plan-feature"><span class="pf-check yes">✓</span><span data-i18n="pf4">3 Language Support</span></div>
-          <div class="plan-feature"><span class="pf-check yes">✓</span><span data-i18n="pf5">No Registration Required</span></div>
-          <div class="plan-feature"><span class="pf-check no">✗</span><span class="pf-text dimmed" data-i18n="pf6">Unlimited Queries</span></div>
-          <div class="plan-feature"><span class="pf-check no">✗</span><span class="pf-text dimmed" data-i18n="pf7">Monthly Financial Report</span></div>
-          <div class="plan-feature"><span class="pf-check no">✗</span><span class="pf-text dimmed" data-i18n="pf8">Risk History Tracking</span></div>
-          <div class="plan-feature"><span class="pf-check no">✗</span><span class="pf-text dimmed" data-i18n="pf9">Budget Planning Assistant</span></div>
+<!-- ══ VOICE SECTION ══ -->
+<section id="voice">
+  <div class="container">
+    <div class="voice-inner">
+      <!-- orb side -->
+      <div class="big-orb-wrap r0">
+        <button class="big-orb" id="bigOrb">🎙️</button>
+        <div class="big-wave" id="bigWave">
+          <div class="bw-bar"></div><div class="bw-bar"></div><div class="bw-bar"></div>
+          <div class="bw-bar"></div><div class="bw-bar"></div><div class="bw-bar"></div>
+          <div class="bw-bar"></div><div class="bw-bar"></div><div class="bw-bar"></div>
+          <div class="bw-bar"></div><div class="bw-bar"></div><div class="bw-bar"></div>
         </div>
-        <a href="https://t.me/MardRiskAI_bot" class="plan-cta plan-cta-free" data-i18n="plan_free_cta">Start Free on Telegram</a>
-      </div>
-      <!-- PRO -->
-      <div class="plan plan-pro">
-        <div class="plan-badge" data-i18n="plan_badge">Most Popular</div>
-        <div class="plan-name" data-i18n="plan_pro_name">Pro</div>
-        <div class="plan-price">$9.99<span data-i18n="plan_pro_period"> / month</span></div>
-        <div class="plan-tagline" data-i18n="plan_pro_tag">For serious financial improvement</div>
-        <div class="plan-features">
-          <div class="plan-feature"><span class="pf-check yes">✓</span><span data-i18n="pf1">Personal Risk Score</span></div>
-          <div class="plan-feature"><span class="pf-check yes">✓</span><span data-i18n="pf2">Purchase Risk Check</span></div>
-          <div class="plan-feature"><span class="pf-check yes">✓</span><span data-i18n="pf3">AI Financial Advice</span></div>
-          <div class="plan-feature"><span class="pf-check yes">✓</span><span data-i18n="pf4">3 Language Support</span></div>
-          <div class="plan-feature"><span class="pf-check yes">✓</span><span data-i18n="pf5">No Registration Required</span></div>
-          <div class="plan-feature"><span class="pf-check yes">✓</span><span data-i18n="pf6">Unlimited Queries</span></div>
-          <div class="plan-feature"><span class="pf-check yes">✓</span><span data-i18n="pf7">Monthly Financial Report</span></div>
-          <div class="plan-feature"><span class="pf-check yes">✓</span><span data-i18n="pf8">Risk History Tracking</span></div>
-          <div class="plan-feature"><span class="pf-check yes">✓</span><span data-i18n="pf9">Budget Planning Assistant</span></div>
+        <div class="voice-lang" id="voiceLang">
+          <button class="vl-btn on" data-l="en">🇬🇧 EN</button>
+          <button class="vl-btn" data-l="hy">🇦🇲 ՀՅ</button>
+          <button class="vl-btn" data-l="ru">🇷🇺 RU</button>
         </div>
-        <a href="https://t.me/MardRiskAI_bot" class="plan-cta plan-cta-pro" data-i18n="plan_pro_cta">Get Pro Access</a>
+        <div class="voice-transcript" id="voiceTrans"><span id="voiceTxt">Press play to hear MardRisk AI introduce itself in your language…</span><span class="tcur" id="voiceCur" style="display:none"></span></div>
+        <button class="voice-play-btn" id="voicePlayBtn"><span id="vBtnI">▶</span><span id="vBtnT">Play Voice Demo</span></button>
+      </div>
+      <!-- content side -->
+      <div class="r0 rd1">
+        <div class="section-label" id="voiceLabel">Voice AI</div>
+        <h2 class="section-h" id="voiceH">Your finances,<br/>heard and <em>answered</em></h2>
+        <p class="section-s" id="voiceP">MardRisk AI now supports full voice interaction. Ask a question out loud — in Armenian, Russian, or English — and receive your risk score and advice read back to you. No typing required.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:28px;">
+          <div class="waf" style="background:var(--paper2);border-color:var(--line);">
+            <div class="waf-icon">🗣️</div><div><div class="waf-t" style="color:var(--text);" id="vf1t">Natural Voice Queries</div><div class="waf-d" style="color:var(--mu);" id="vf1d">Speak like you'd talk to a friend — "Should I buy this?" — AI understands intent.</div></div>
+          </div>
+          <div class="waf" style="background:var(--paper2);border-color:var(--line);">
+            <div class="waf-icon">🔊</div><div><div class="waf-t" style="color:var(--text);" id="vf2t">Spoken Responses</div><div class="waf-d" style="color:var(--mu);" id="vf2d">Get your risk score and advice read back to you — perfect for driving, cooking, or multitasking.</div></div>
+          </div>
+          <div class="waf" style="background:var(--paper2);border-color:var(--line);">
+            <div class="waf-icon">⚡</div><div><div class="waf-t" style="color:var(--text);" id="vf3t">Under 3 Seconds</div><div class="waf-d" style="color:var(--mu);" id="vf3d">Voice-to-analysis faster than any human advisor, in real time.</div></div>
+          </div>
+        </div>
+        <div style="margin-top:28px;">
+          <a href="https://t.me/MardRiskAI_bot" target="_blank" class="btn btn-dark">🎙️ <span id="tryVoiceBtn">Try Voice AI on Telegram</span></a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SHARE -->
-<section class="share-section">
-  <div class="share-inner">
-    <h2 class="reveal" data-i18n="sh_h2">Know someone spending without thinking?</h2>
-    <p class="reveal" data-i18n="sh_sub">Share MardRisk AI — it could save them from a costly mistake.</p>
-    <div class="share-buttons reveal">
-      <a href="https://t.me/share/url?url=https://mardriskai.online&text=Check%20your%20financial%20risk%20score%20with%20AI%20%E2%80%94%20free%20on%20Telegram" target="_blank" class="share-btn share-tg">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.48 14.08l-2.95-.924c-.642-.204-.657-.642.136-.953l11.527-4.443c.534-.194 1.003.13.37.488z"/></svg>
-        <span data-i18n="sh_tg">Share on Telegram</span>
-      </a>
-      <a href="https://twitter.com/intent/tweet?text=Just%20checked%20my%20financial%20risk%20score%20with%20AI%20%E2%80%94%20try%20it%20free%20at%20mardriskai.online" target="_blank" class="share-btn share-x">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        <span data-i18n="sh_x">Share on X</span>
-      </a>
-      <button class="share-btn share-copy" onclick="copyLink()">🔗 <span data-i18n="sh_copy">Copy Link</span></button>
+<!-- ══ PRICING ══ -->
+<section id="pricing">
+  <div class="container">
+    <div class="section-label r0" id="prLabel">Pricing</div>
+    <h2 class="section-h r0 rd1" id="prH">Simple,<br/><em>honest</em> pricing</h2>
+    <p class="section-s r0 rd2" id="prS">Start for free. Upgrade when you need more. No hidden fees, no surprises.</p>
+    <div class="pricing-grid">
+      <div class="plan r0">
+        <div class="plan-name" id="p1n">Free</div>
+        <div class="plan-desc" id="p1d">Everything to get started today</div>
+        <div class="plan-price">$0</div>
+        <div class="plan-period" id="p1p">Forever free · No card required</div>
+        <div class="plan-div"></div>
+        <ul class="plan-feats">
+          <li class="on"><span id="pf1">Personal Risk Score</span></li>
+          <li class="on"><span id="pf2">Purchase Risk Check</span></li>
+          <li class="on"><span id="pf3">AI Financial Advice</span></li>
+          <li class="on"><span id="pf4">3 Language Support</span></li>
+          <li class="on"><span id="pf5">No Registration Required</span></li>
+          <li class="off"><span id="pf6">Advanced Analytics</span></li>
+          <li class="off"><span id="pf7">Voice AI Access</span></li>
+          <li class="off"><span id="pf8">Monthly Reports</span></li>
+        </ul>
+        <a href="https://t.me/MardRiskAI_bot" target="_blank" class="btn btn-outline" style="width:100%;justify-content:center;" id="freeBtn">Start Free →</a>
+      </div>
+      <div class="plan featured r0 rd1">
+        <div class="plan-pop" id="popLabel">Most Popular</div>
+        <div class="plan-name" style="color:var(--paper);" id="p2n">Pro</div>
+        <div class="plan-desc" style="color:rgba(247,245,240,.45);" id="p2d">For serious financial decisions</div>
+        <div class="plan-price" style="color:var(--g);">$9.99<sub>/mo</sub></div>
+        <div class="plan-period" style="color:rgba(247,245,240,.38);" id="p2p">Billed monthly · Cancel anytime</div>
+        <div class="plan-div" style="background:rgba(247,245,240,.08);"></div>
+        <ul class="plan-feats">
+          <li class="on" style="color:var(--paper);border-color:rgba(247,245,240,.07);"><span id="pp1">Everything in Free</span></li>
+          <li class="on" style="color:var(--paper);border-color:rgba(247,245,240,.07);"><span id="pp2">Unlimited Queries</span></li>
+          <li class="on" style="color:var(--paper);border-color:rgba(247,245,240,.07);"><span id="pp3">Advanced Analytics</span></li>
+          <li class="on" style="color:var(--paper);border-color:rgba(247,245,240,.07);"><span id="pp4">Monthly Financial Report</span></li>
+          <li class="on" style="color:var(--paper);border-color:rgba(247,245,240,.07);"><span id="pp5">Budget Planning Assistant</span></li>
+          <li class="on" style="color:var(--paper);border-color:rgba(247,245,240,.07);"><span id="pp6">Risk History Tracking</span></li>
+          <li class="on" style="color:var(--paper);border-color:rgba(247,245,240,.07);"><span id="pp7">🎙️ Voice AI Access</span></li>
+          <li class="on" style="color:var(--paper);border-color:rgba(247,245,240,.07);"><span id="pp8">Priority Support</span></li>
+        </ul>
+        <a href="https://t.me/MardRiskAI_bot" target="_blank" class="btn btn-green" style="width:100%;justify-content:center;" id="proBtn">Get Pro →</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <div class="section-tag" style="background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.2);color:var(--green);" data-i18n="fin_tag">✓ Free Forever</div>
-  <h2 class="reveal" data-i18n="fin_h2">Your finances are talking.<br>Are you listening?</h2>
-  <p class="reveal" data-i18n="fin_sub">Join <span id="finalCount">—</span> people who already know their risk. It takes 30 seconds.</p>
-  <div class="final-stats reveal">
-    <div class="fstat"><div class="fstat-n" id="finalCountStat">—</div><div class="fstat-l" data-i18n="fs1">Checked today</div></div>
-    <div class="fstat"><div class="fstat-n">&lt;5s</div><div class="fstat-l" data-i18n="fs2">Score speed</div></div>
-    <div class="fstat"><div class="fstat-n">3</div><div class="fstat-l" data-i18n="fs3">Languages</div></div>
-    <div class="fstat"><div class="fstat-n">$0</div><div class="fstat-l" data-i18n="fs4">Cost to start</div></div>
+<!-- ══ WEB APP ══ -->
+<section id="webapp">
+  <div class="container">
+    <div class="section-label r0" style="color:rgba(247,245,240,.28);">🌐 <span id="waLabel">Coming Soon</span></div>
+    <h2 class="section-h r0 rd1" style="color:var(--paper);" id="waH">Your finances,<br/>now on the <em>web</em></h2>
+    <p class="section-s r0 rd2" style="color:rgba(247,245,240,.45);" id="waS">The full MardRisk AI experience is coming to your browser. No Telegram required — track, analyse, and plan from any device.</p>
+
+    <div class="wa-inner">
+      <div class="wa-screen-mock r0">
+        <div class="wa-titlebar">
+          <div class="wa-tb-dot"></div><div class="wa-tb-dot"></div><div class="wa-tb-dot"></div>
+          <div class="wa-tb-url">app.mardriskai.online</div>
+        </div>
+        <div class="wa-body">
+          <div class="wa-row">
+            <div class="wa-card"><div class="wa-card-label" id="waCard1L">Risk Score</div><div class="wa-card-val">72</div></div>
+            <div class="wa-card"><div class="wa-card-label" id="waCard2L">Saved This Month</div><div class="wa-card-val" style="color:var(--g);">$340</div></div>
+            <div class="wa-card">
+              <div class="wa-card-label" id="waCard3L">Trend</div>
+              <div class="wa-chart-bars">
+                <div class="wa-bar" style="height:30%"></div><div class="wa-bar" style="height:50%"></div>
+                <div class="wa-bar" style="height:40%"></div><div class="wa-bar" style="height:70%"></div>
+                <div class="wa-bar hi" style="height:90%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="wa-coming">
+            <div class="wa-cs-badge">🚧 <span id="waBadge">In Development</span></div>
+            <div class="wa-cs-txt" id="waDevTxt">Full web experience launching soon</div>
+          </div>
+        </div>
+      </div>
+      <div class="wa-features r0 rd1">
+        <div class="waf"><div class="waf-icon">📈</div><div><div class="waf-t" id="waf1t">Financial Dashboard</div><div class="waf-d" id="waf1d">Full overview of your risk history, spending patterns, and financial health score over time.</div></div></div>
+        <div class="waf"><div class="waf-icon">🗓️</div><div><div class="waf-t" id="waf2t">Monthly Reports</div><div class="waf-d" id="waf2d">Detailed monthly breakdowns with insights, trends, and personalised improvement tips.</div></div></div>
+        <div class="waf"><div class="waf-icon">🎯</div><div><div class="waf-t" id="waf3t">Budget Planner</div><div class="waf-d" id="waf3d">Set financial goals and get AI-powered guidance on how to reach them, week by week.</div></div></div>
+        <div class="waf"><div class="waf-icon">📱</div><div><div class="waf-t" id="waf4t">Any Device</div><div class="waf-d" id="waf4d">Works on desktop, tablet, and mobile — no app store, no download, just open the browser.</div></div></div>
+      </div>
+    </div>
   </div>
-  <div class="cta-group reveal">
-    <a href="https://t.me/MardRiskAI_bot" class="btn-primary" style="font-size:1.05rem;padding:17px 32px;">
-      <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.48 14.08l-2.95-.924c-.642-.204-.657-.642.136-.953l11.527-4.443c.534-.194 1.003.13.37.488z"/></svg>
-      <span data-i18n="fin_cta">Check My Risk Score — Free</span>
-    </a>
-    <a href="mailto:info@mardriskai.online?subject=Web App Waitlist" class="btn-soft" style="padding:17px 20px;">
-      🌐 <span data-i18n="fin_web">Join Web App Waitlist</span>
-    </a>
+</section>
+
+<!-- ══ TESTIMONIALS ══ -->
+<section id="trust">
+  <div class="container">
+    <div class="trust-head r0">
+      <div class="section-label" id="trustLabel">Testimonials</div>
+      <h2 class="section-h" id="trustH">What people<br/>are saying</h2>
+    </div>
+    <div class="quotes-grid">
+      <div class="quote-card r0">
+        <div class="quote-stars">⭐⭐⭐⭐⭐</div>
+        <div class="quote-text" id="q1t">"Saved me from a terrible purchase. I was about to spend $800 I didn't really have. The bot said red. I listened."</div>
+        <div class="quote-author"><div class="qa-avatar">👨</div><div><div class="qa-name" id="q1n">Armen K.</div><div class="qa-role" id="q1r">Yerevan, Armenia</div></div></div>
+      </div>
+      <div class="quote-card r0 rd1">
+        <div class="quote-stars">⭐⭐⭐⭐⭐</div>
+        <div class="quote-text" id="q2t">"Finally an AI tool that speaks Armenian. And actually gives useful financial advice. Incredible."</div>
+        <div class="quote-author"><div class="qa-avatar">👩</div><div><div class="qa-name" id="q2n">Ani M.</div><div class="qa-role" id="q2r">Yerevan, Armenia</div></div></div>
+      </div>
+      <div class="quote-card r0 rd2">
+        <div class="quote-stars">⭐⭐⭐⭐⭐</div>
+        <div class="quote-text" id="q3t">"The risk score is shockingly accurate. It knows my financial habits better than I do."</div>
+        <div class="quote-author"><div class="qa-avatar">👨</div><div><div class="qa-name" id="q3n">Dmitri V.</div><div class="qa-role" id="q3r">Moscow, Russia</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section id="cta">
+  <div class="cta-bg-circle cbc-1"></div>
+  <div class="cta-bg-circle cbc-2"></div>
+  <div class="cta-inner r0">
+    <div class="cta-label" id="ctaLabel">Start Today — It's Free</div>
+    <h2 class="cta-h" id="ctaH">Make your next<br/><em>financial decision</em><br/>with confidence.</h2>
+    <p class="cta-p" id="ctaP">No sign-up. No app. No credit card. Just open Telegram, start the bot, and get your personal risk score in under 30 seconds.</p>
+    <div class="cta-btns">
+      <a href="https://t.me/MardRiskAI_bot" target="_blank" class="btn-cta-main" id="ctaBtn1">🚀 <span id="cb1">Open @MardRiskAI_bot</span></a>
+      <a href="#voice" class="btn-cta-ghost" id="ctaBtn2">🎙️ <span id="cb2">Try Voice Demo</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label r0" id="contLabel">Contact</div>
+    <h2 class="section-h r0 rd1" id="contH">Let's <em>talk</em></h2>
+    <p class="section-s r0 rd2" id="contS">Questions, partnerships, press — we respond within 24 hours.</p>
+    <div class="contact-grid">
+      <div class="cont-info r0">
+        <div class="ci-card"><div class="ci-ico">✉️</div><div><div class="ci-lbl">Email</div><div class="ci-val"><a href="mailto:info@mardriskai.online">info@mardriskai.online</a></div></div></div>
+        <div class="ci-card"><div class="ci-ico">✈️</div><div><div class="ci-lbl">Telegram</div><div class="ci-val"><a href="https://t.me/MardRiskAI_bot" target="_blank">@MardRiskAI_bot</a></div></div></div>
+        <div class="ci-card"><div class="ci-ico">📍</div><div><div class="ci-lbl">Location</div><div class="ci-val">Yerevan, Armenia 🇦🇲</div></div></div>
+        <div class="ci-card"><div class="ci-ico">⏱️</div><div><div class="ci-lbl" id="rtL">Response Time</div><div class="ci-val" id="rtV">Within 24 hours</div></div></div>
+      </div>
+      <div class="cont-form r0 rd1">
+        <div class="cf-2col">
+          <div class="cf-group"><label class="cf-lbl" id="cfFn">First Name</label><input class="cf-inp" placeholder="Aram"/></div>
+          <div class="cf-group"><label class="cf-lbl" id="cfLn">Last Name</label><input class="cf-inp" placeholder="Petrosyan"/></div>
+        </div>
+        <div class="cf-group"><label class="cf-lbl" id="cfEm">Email</label><input class="cf-inp" type="email" placeholder="aram@example.com"/></div>
+        <div class="cf-group"><label class="cf-lbl" id="cfSb">Subject</label>
+          <select class="cf-sel" id="cfSel">
+            <option>General Question</option><option>Partnership</option><option>Bug Report</option><option>Feature Request</option>
+          </select>
+        </div>
+        <div class="cf-group"><label class="cf-lbl" id="cfMs">Message</label><textarea class="cf-area" placeholder="Tell us how we can help…"></textarea></div>
+        <button class="btn btn-dark" style="width:100%;justify-content:center;padding:14px;" id="cfSnd">Send Message →</button>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="logo" style="font-family:'Syne',sans-serif;font-weight:800;">Mard<span style="color:var(--accent2)">Risk</span> AI</div>
-  <div style="display:flex;gap:20px;flex-wrap:wrap;justify-content:center;">
-    <a href="https://t.me/MardRiskAI_bot">@MardRiskAI_bot</a>
-    <a href="mailto:info@mardriskai.online">info@mardriskai.online</a>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="foot-logo"><span class="foot-lname">MardRisk AI</span></div>
+      <p class="foot-desc" id="footD">Your AI-powered financial risk advisor on Telegram. Know before you spend.</p>
+    </div>
+    <div>
+      <div class="foot-col-h" id="footN">Navigate</div>
+      <ul class="foot-links">
+        <li><a href="#features">Features</a></li><li><a href="#how">How It Works</a></li>
+        <li><a href="#voice">Voice AI</a></li><li><a href="#pricing">Pricing</a></li>
+        <li><a href="#webapp">Web App</a></li><li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="foot-col-h" id="footC">Connect</div>
+      <ul class="foot-links">
+        <li><a href="https://t.me/MardRiskAI_bot" target="_blank">@MardRiskAI_bot</a></li>
+        <li><a href="mailto:info@mardriskai.online">info@mardriskai.online</a></li>
+        <li><a>Yerevan, Armenia</a></li>
+      </ul>
+    </div>
   </div>
-  <div>© 2026 MardRisk AI · Yerevan, Armenia</div>
+  <div class="foot-bottom">
+    <span>© 2025 MardRisk AI. All rights reserved.</span>
+    <span>Built with ❤️ in 🇦🇲 Armenia</span>
+  </div>
 </footer>
 
-<div class="copy-toast" id="copyToast">✓ Link copied!</div>
-
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script src="script.js">
 
 </script>
