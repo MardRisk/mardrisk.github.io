@@ -737,6 +737,7 @@ h1 .strike::after{
 }
 .wa-cs-txt{font-size:13px;color:rgba(247,245,240,.4);font-weight:300;}
 
+.wa-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;}
 .wa-features{display:flex;flex-direction:column;gap:14px;}
 .waf{
   display:flex;gap:16px;padding:18px 20px;
@@ -1176,8 +1177,9 @@ footer{
       <h1 class="r0 rd1" id="heroH">Most people lose money<br/>without <em>realizing it.</em><br/><span style="font-size:.62em;color:var(--mu);font-style:normal;">Check your financial risk<br/>before it's too late.</span></h1>
       <p class="hero-sub r0 rd2" id="heroSub">MardRisk AI gives you a personal risk score in under 5 seconds — so you know exactly what every financial decision costs you, before you make it.</p>
       <div class="hero-ctas r0 rd3">
-        <a href="https://t.me/MardRiskAI_bot" target="_blank" class="btn btn-green" id="heroCta1">🛡️ <span id="hc1">Check My Risk Score</span></a>
-        <a href="#voice" class="btn btn-outline" id="heroCta2">🎙️ <span id="hc2">Try Voice Demo</span></a>
+        <a href="https://app.mardriskai.online" target="_blank" class="btn btn-green" id="heroCta1">🌐 <span id="hc1">Open Web App</span></a>
+              <a href="https://t.me/MardRiskAI_bot" target="_blank" class="btn btn-dark" id="heroCta2" style="margin-top:0">✈️ <span id="hc2">Open in Telegram</span></a>
+        <a href="#voice" class="btn btn-outline" id="heroCta3">🎙️ <span id="hc3">Try Voice Demo</span></a>
       </div>
       <div class="trust-row r0 rd4" id="trustRow">Free forever · No sign-up · Results in 5 seconds</div>
       <!-- SOCIAL PROOF BAR -->
@@ -1486,9 +1488,9 @@ footer{
 <!-- ══ WEB APP ══ -->
 <section id="webapp">
   <div class="container">
-    <div class="section-label r0" style="color:rgba(247,245,240,.28);">🌐 <span id="waLabel">Coming Soon</span></div>
+    <div class="section-label r0" style="color:rgba(0,201,107,.7);">🌐 <span id="waLabel">Now Live</span></div>
     <h2 class="section-h r0 rd1" style="color:var(--paper);" id="waH">Your finances,<br/>now on the <em>web</em></h2>
-    <p class="section-s r0 rd2" style="color:rgba(247,245,240,.45);" id="waS">The full MardRisk AI experience is coming to your browser. No Telegram required — track, analyse, and plan from any device.</p>
+    <p class="section-s r0 rd2" style="color:rgba(247,245,240,.45);" id="waS">The full MardRisk AI experience is live in your browser. No Telegram required — track, analyse, and plan from any device.</p>
 
     <div class="wa-inner">
       <div class="wa-screen-mock r0">
@@ -1510,8 +1512,8 @@ footer{
             </div>
           </div>
           <div class="wa-coming">
-            <div class="wa-cs-badge">🚧 <span id="waBadge">In Development</span></div>
-            <div class="wa-cs-txt" id="waDevTxt">Full web experience launching soon</div>
+            <div class="wa-cs-badge" style="background:rgba(0,201,107,.15);border-color:rgba(0,201,107,.3);color:#00C96B;">✅ <span id="waBadge">Live Now</span></div>
+            <div class="wa-cs-txt" id="waDevTxt">Open the full dashboard at app.mardriskai.online</div>
           </div>
         </div>
       </div>
@@ -1520,6 +1522,11 @@ footer{
         <div class="waf"><div class="waf-icon">🗓️</div><div><div class="waf-t" id="waf2t">Monthly Reports</div><div class="waf-d" id="waf2d">Detailed monthly breakdowns with insights, trends, and personalised improvement tips.</div></div></div>
         <div class="waf"><div class="waf-icon">🎯</div><div><div class="waf-t" id="waf3t">Budget Planner</div><div class="waf-d" id="waf3d">Set financial goals and get AI-powered guidance on how to reach them, week by week.</div></div></div>
         <div class="waf"><div class="waf-icon">📱</div><div><div class="waf-t" id="waf4t">Any Device</div><div class="waf-d" id="waf4d">Works on desktop, tablet, and mobile — no app store, no download, just open the browser.</div></div></div>
+        <!-- CTA buttons -->
+        <div class="wa-ctas">
+          <a href="https://app.mardriskai.online" target="_blank" class="btn btn-green" id="waWebBtn">🌐 <span id="waWebBtnTxt">Open Web App</span></a>
+          <a href="https://t.me/MardRiskAI_bot" target="_blank" class="btn btn-dark" id="waTgBtn">✈️ <span id="waTgBtnTxt">Open in Telegram</span></a>
+        </div>
       </div>
     </div>
   </div>
@@ -1561,8 +1568,8 @@ footer{
     <h2 class="cta-h" id="ctaH">Make your next<br/><em>financial decision</em><br/>with confidence.</h2>
     <p class="cta-p" id="ctaP">No sign-up. No app. No credit card. Just open Telegram, start the bot, and get your personal risk score in under 30 seconds.</p>
     <div class="cta-btns">
-      <a href="https://t.me/MardRiskAI_bot" target="_blank" class="btn-cta-main" id="ctaBtn1">🚀 <span id="cb1">Open @MardRiskAI_bot</span></a>
-      <a href="#voice" class="btn-cta-ghost" id="ctaBtn2">🎙️ <span id="cb2">Try Voice Demo</span></a>
+      <a href="https://app.mardriskai.online" target="_blank" class="btn-cta-main" id="ctaBtn1">🌐 <span id="cb1">Open Web App</span></a>
+      <a href="https://t.me/MardRiskAI_bot" target="_blank" class="btn-cta-ghost" id="ctaBtn2">✈️ <span id="cb2">Open in Telegram</span></a>
     </div>
   </div>
 </section>
@@ -1575,7 +1582,7 @@ footer{
     <p class="section-s r0 rd2" id="contS">Questions, partnerships, press — we respond within 24 hours.</p>
     <div class="contact-grid">
       <div class="cont-info r0">
-        <div class="ci-card"><div class="ci-ico">✉️</div><div><div class="ci-lbl">Email</div><div class="ci-val"><a href="mailto:info@mardriskai.online">info@mardriskai.online</a></div></div></div>
+        <div class="ci-card"><div class="ci-ico">✉️</div><div><div class="ci-lbl">Email</div><div class="ci-val"><a href="/cdn-cgi/l/email-protection#5c35323a331c313d2e382e352f373d3572333230353239"><span class="__cf_email__" data-cfemail="41282f272e012c2033253328322a20286f2e2f2d282f24">[email&#160;protected]</span></a></div></div></div>
         <div class="ci-card"><div class="ci-ico">✈️</div><div><div class="ci-lbl">Telegram</div><div class="ci-val"><a href="https://t.me/MardRiskAI_bot" target="_blank">@MardRiskAI_bot</a></div></div></div>
         <div class="ci-card"><div class="ci-ico">📍</div><div><div class="ci-lbl">Location</div><div class="ci-val">Yerevan, Armenia 🇦🇲</div></div></div>
         <div class="ci-card"><div class="ci-ico">⏱️</div><div><div class="ci-lbl" id="rtL">Response Time</div><div class="ci-val" id="rtV">Within 24 hours</div></div></div>
@@ -1617,7 +1624,7 @@ footer{
       <div class="foot-col-h" id="footC">Connect</div>
       <ul class="foot-links">
         <li><a href="https://t.me/MardRiskAI_bot" target="_blank">@MardRiskAI_bot</a></li>
-        <li><a href="mailto:info@mardriskai.online">info@mardriskai.online</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#f990979f96b994988b9d8b908a929890d796979590979c"><span class="__cf_email__" data-cfemail="a1c8cfc7cee1ccc0d3c5d3c8d2cac0c88fcecfcdc8cfc4">[email&#160;protected]</span></a></li>
         <li><a>Yerevan, Armenia</a></li>
       </ul>
     </div>
@@ -1628,7 +1635,7 @@ footer{
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script>
 // ── CURSOR ──
 const cur=document.getElementById('cursor'),curR=document.getElementById('cursor-ring');
@@ -1659,7 +1666,7 @@ document.querySelectorAll('.r0').forEach(el=>ro.observe(el));
 // ── TRANSLATIONS ──
 const T={
   en:{
-    eyebrowTxt:'Live on Telegram · @MardRiskAI_bot',
+    eyebrowTxt:'Web App & Telegram · @MardRiskAI_bot',
     heroH:'Most people lose money<br/>without <em>realizing it.</em>',
     heroSub:'Check your financial risk before it\'s too late. MardRisk AI gives you a personal risk score in under 5 seconds — so you know exactly what every decision costs you.',
     hc1:'Check My Risk Score',hc2:'Try Voice Demo',
@@ -1704,7 +1711,7 @@ const T={
     p2n:'Pro',p2d:'For serious financial decisions',p2p:'Billed monthly · Cancel anytime',
     pp1:'Everything in Free',pp2:'Unlimited Queries',pp3:'Advanced Analytics',pp4:'Monthly Financial Report',pp5:'Budget Planning Assistant',pp6:'Risk History Tracking',pp7:'🎙️ Voice AI Access',pp8:'Priority Support',
     popLabel:'Most Popular',freeBtn:'Check My Risk Score — Free →',proBtn:'Get Pro →',
-    waLabel:'Coming Soon',waH:'Your finances,<br/>now on the <em>web</em>',waS:'The full MardRisk AI experience is coming to your browser. No Telegram required — track, analyse, and plan from any device.',
+    waLabel:'Now Live',waH:'Your finances,<br/>now on the <em>web</em>',waS:'The full MardRisk AI experience is live in your browser. Choose your preferred way to access MardRisk AI.',waBadge:'Live Now',waDevTxt:'Open the full dashboard at app.mardriskai.online',waWebBtnTxt:'Open Web App',waTgBtnTxt:'Open in Telegram',
     waCard1L:'Risk Score',waCard2L:'Saved This Month',waCard3L:'Trend',waBadge:'In Development',waDevTxt:'Full web experience launching soon',
     waf1t:'Financial Dashboard',waf1d:'Full overview of your risk history, spending patterns, and financial health score over time.',
     waf2t:'Monthly Reports',waf2d:'Detailed monthly breakdowns with insights, trends, and personalised improvement tips.',
@@ -1718,7 +1725,7 @@ const T={
     cb1:'Check My Risk Score',cb2:'Try Voice Demo',
     contLabel:'Contact',contH:'Let\'s <em>talk</em>',contS:'Questions, partnerships, press — we respond within 24 hours.',
     rtL:'Response Time',rtV:'Within 24 hours',cfFn:'First Name',cfLn:'Last Name',cfEm:'Email',cfSb:'Subject',cfMs:'Message',cfSnd:'Send Message →',
-    footD:'Your AI-powered financial risk advisor on Telegram. Know before you spend.',footN:'Navigate',footC:'Connect',
+    footD:'Your AI-powered financial risk advisor. Available on Web and Telegram. Know before you spend.',footN:'Navigate',footC:'Connect',
     tk1:'Personal Risk Score',tk2:'Purchase Risk Check',tk3:'AI Financial Advice',tk4:'Voice AI Advisor',tk5:'3 Languages',tk6:'Zero Data Storage',tk7:'Instant Results',tk8:'Free to Start',
     mNavCta:'Open Telegram Bot',
     vpScript:"Hi. I'm MardRisk AI — your personal AI financial risk advisor, inside Telegram.\n\nEvery day, people make financial decisions that quietly destroy their budget — without realizing it.\n\nI analyse your income, spending habits, and financial behaviour, then produce a real-time risk score from zero to one hundred — in under 5 seconds.\n\nPlanning a big purchase? Considering a loan? Just want to know if you're on track? I'm here.\n\nNo app to download. No account to create. Just Telegram.\n\nFree. Instant. Private."
@@ -1768,7 +1775,7 @@ const T={
     p2n:'Pro',p2d:'Լուրջ ֆինանսական որոշումների համար',p2p:'Ամսական · Ցանկացած ժամ չեղարկե՛ք',
     pp1:'Ամեն ինչ Անվճարից',pp2:'Անսահմանափակ Հարցումներ',pp3:'Ընդլայնված Վերլուծություն',pp4:'Ամսական Ֆինանսական Հաշվետվություն',pp5:'Բյուջեի Պլանավորող',pp6:'Ռիսկի Պատմություն',pp7:'🎙️ Ձայնային AI',pp8:'Առաջնային Աջակցություն',
     popLabel:'Ամենատարածված',freeBtn:'Ստուգե՛ք Ռիսկի Միավորս — Անվճար →',proBtn:'Ստացե՛ք Pro →',
-    waLabel:'Շուտով',waH:'Ձեր ֆինանսները,<br/>այժմ <em>վեբ-ում</em>',waS:'MardRisk AI-ի լրիվ փորձը գալիս է Ձեր բրաուզեր: Telegram-ի կարիք չկա:',
+    waLabel:'Հիմա Հասանելի',waH:'Ձեր ֆինանսները,<br/>այժմ <em>վեբ-ում</em>',waS:'MardRisk AI-ն հիմա հասանելի է Ձեր բրաուզերից: Ընտրեք ձեր նախընտրած մուտքի ձևը:',waBadge:'Հիմա Live',waDevTxt:'Բացեք app.mardriskai.online',waWebBtnTxt:'Բացել Վեբ App',waTgBtnTxt:'Բացել Telegram-ում',
     waCard1L:'Ռիսկի Միավոր',waCard2L:'Ամսվա Խնայողություն',waCard3L:'Միտում',waBadge:'Մշակման Մեջ',waDevTxt:'Լրիվ վեբ փորձը շուտով',
     waf1t:'Ֆինանսական Dashboard',waf1d:'Ռիսկի պատմություն, ծախսերի ձևաչափ, ֆինանսական առողջության միավոր:',
     waf2t:'Ամսական Հաշվետվություններ',waf2d:'Մանրամասն ամսական վերլուծություն՝ պատկերացումներով:',
@@ -1832,7 +1839,7 @@ const T={
     p2n:'Pro',p2d:'Для серьёзных финансовых решений',p2p:'Ежемесячно · Отмена в любой момент',
     pp1:'Всё из Бесплатного',pp2:'Безлимитные Запросы',pp3:'Расширенная Аналитика',pp4:'Ежемесячный Финансовый Отчёт',pp5:'Помощник по Бюджету',pp6:'История Рисков',pp7:'🎙️ Голосовой ИИ',pp8:'Приоритетная Поддержка',
     popLabel:'Популярно',freeBtn:'Проверить мой Risk Score — Бесплатно →',proBtn:'Получить Pro →',
-    waLabel:'Скоро',waH:'Ваши финансы,<br/>теперь в <em>браузере</em>',waS:'Полный опыт MardRisk AI приходит в ваш браузер. Telegram не нужен.',
+    waLabel:'Уже доступно',waH:'Ваши финансы,<br/>теперь в <em>браузере</em>',waS:'MardRisk AI теперь доступен в вашем браузере. Выберите удобный способ входа.',waBadge:'Live сейчас',waDevTxt:'Откройте app.mardriskai.online',waWebBtnTxt:'Открыть Web App',waTgBtnTxt:'Открыть в Telegram',
     waCard1L:'Оценка риска',waCard2L:'Сэкономлено в месяц',waCard3L:'Тренд',waBadge:'В разработке',waDevTxt:'Полный веб-опыт скоро',
     waf1t:'Финансовый Дашборд',waf1d:'Полный обзор истории рисков, паттернов расходов и финансового здоровья.',
     waf2t:'Ежемесячные Отчёты',waf2d:'Подробный ежемесячный анализ с инсайтами и советами.',
@@ -1843,7 +1850,7 @@ const T={
     q2t:'"Наконец ИИ-инструмент, который говорит по-<em>армянски</em>. И даёт реально полезные советы."',q2n:'Ани М.',q2r:'Ереван, Армения',
     q3t:'"Оценка риска <em>поразительно точная</em>. Знает мои финансовые привычки лучше меня."',q3n:'Дмитрий В.',q3r:'Москва, Россия',
     ctaLabel:'Начните Сегодня — Бесплатно',ctaH:'Примите следующее<br/><em>финансовое решение</em><br/>с уверенностью.',ctaP:'Никакой регистрации. Никакого приложения. Просто откройте Telegram.',
-    cb1:'Открыть @MardRiskAI_bot',cb2:'Попробовать голосовое демо',
+    cb1:'Открыть Web App',cb2:'Попробовать голосовое демо',
     contLabel:'Контакт',contH:'Давайте <em>поговорим</em>',contS:'Вопросы, партнёрство, пресса — отвечаем за 24 часа.',
     rtL:'Время ответа',rtV:'В течение 24 часов',cfFn:'Имя',cfLn:'Фамилия',cfEm:'Эл. почта',cfSb:'Тема',cfMs:'Сообщение',cfSnd:'Отправить →',
     footD:'Ваш ИИ-советник по финансовым рискам в Telegram.',footN:'Навигация',footC:'Связь',
@@ -2043,7 +2050,7 @@ function applyLang(l){
   document.querySelectorAll('[data-l]').forEach(b=>b.classList.toggle('on',b.dataset.l===l));
   resetVoice();
   const tks=['tk1','tk2','tk3','tk4','tk5','tk6','tk7','tk8'];
-  tks.forEach(id=>{const el=document.getElementById(id);if(el&&d[id])el.textContent=d[id];});
+  tks.forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=d[id];});
 }
 document.querySelectorAll('[data-l]').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.l)));
 </script>
