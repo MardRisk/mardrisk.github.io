@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<title>About MardRisk AI</title>
+<meta name="description" content="About MardRisk AI, what the product does, who founded it, and where to follow the project."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="icon" type="image/x-icon" href="/assets/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#070A12; --paper:#F7F5F0; --paper2:#EFECE5; --line:rgba(7,10,18,.08);
+  --g:#00C96B; --g-dark:#009B52; --blue:#1A6BFF; --text:#070A12; --mu:rgba(7,10,18,.56); --dim:rgba(7,10,18,.28);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper); color:var(--text); font-family:'Geist',sans-serif; line-height:1.65;
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+nav{
+  position:sticky;top:0;z-index:1000;height:68px;display:flex;align-items:center;
+  background:rgba(247,245,240,.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)
+}
+.nav-in{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1160px;margin:0 auto;padding:0 24px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-name{font-family:'Instrument Serif',serif;font-size:20px}
+.nav-right{display:flex;align-items:center;gap:12px}
+.lang-pill{display:flex;background:rgba(7,10,18,.06);border-radius:10px;padding:3px;gap:3px}
+.lpb{border:0;background:transparent;padding:7px 11px;border-radius:8px;font-size:12px;font-weight:700;color:var(--mu);cursor:pointer}
+.lpb.on{background:var(--ink);color:var(--paper)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;
+  border-radius:12px;border:1px solid transparent;font-size:14px;font-weight:600;transition:.2s ease
+}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-outline{border-color:var(--line);background:transparent}
+.hero{
+  position:relative;overflow:hidden;padding:86px 0 54px;
+  background:
+    linear-gradient(var(--line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line) 1px,transparent 1px),
+    var(--paper);
+  background-size:80px 80px,80px 80px,auto;
+}
+.hero:before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 75% 20%, rgba(0,201,107,.10), transparent 25%),
+             radial-gradient(circle at 20% 80%, rgba(26,107,255,.08), transparent 24%);
+  pointer-events:none;
+}
+.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:20px;font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--mu);font-weight:700}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--g)}
+h1{
+  font-family:'Instrument Serif',serif;font-size:clamp(42px,6vw,74px);font-weight:400;
+  line-height:1.05;letter-spacing:-1.2px;margin-bottom:18px
+}
+h1 em{font-style:italic;color:var(--g-dark)}
+.hero-sub{font-size:18px;color:var(--mu);max-width:640px}
+.hero-card{
+  background:linear-gradient(160deg,#0B1525,#070A12);color:#fff;border-radius:24px;padding:28px;
+  box-shadow:0 40px 120px rgba(7,10,18,.22); border:1px solid rgba(255,255,255,.06)
+}
+.mini-badge{
+  display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:6px 12px;
+  background:rgba(0,201,107,.12);color:#8bffc1;font-size:12px;font-weight:700;margin-bottom:18px
+}
+.metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.metric-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px}
+.metric-num{font-family:'Instrument Serif',serif;font-size:34px;line-height:1}
+.metric-copy{font-size:12px;color:rgba(255,255,255,.64);margin-top:6px}
+.section{padding:88px 0}
+.section-label{display:flex;align-items:center;gap:12px;font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--mu);font-weight:700;margin-bottom:18px}
+.section-label:before{content:'';width:24px;height:1.5px;background:var(--g)}
+.section-h{font-family:'Instrument Serif',serif;font-size:clamp(32px,4vw,56px);font-weight:400;line-height:1.08;letter-spacing:-.8px;margin-bottom:14px}
+.section-h em{font-style:italic;color:var(--g-dark)}
+.section-s{max-width:740px;font-size:16px;color:var(--mu)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+.card{background:var(--paper2);border:1px solid var(--line);border-radius:20px;padding:26px}
+.card-h{font-family:'Instrument Serif',serif;font-size:26px;font-weight:400;margin-bottom:8px}
+.card-p{font-size:14px;color:var(--mu)}
+.timeline{display:grid;gap:14px;margin-top:34px}
+.step{display:grid;grid-template-columns:78px 1fr;gap:18px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}
+.step-num{
+  width:58px;height:58px;border-radius:18px;background:var(--ink);color:#fff;display:flex;
+  align-items:center;justify-content:center;font-family:'Instrument Serif',serif;font-size:24px
+}
+.step h3{font-size:18px;margin-bottom:6px}
+.step p{font-size:14px;color:var(--mu)}
+.founder{
+  display:grid;grid-template-columns:320px 1fr;gap:24px;align-items:start;margin-top:34px
+}
+.founder-card,.socials-card{
+  background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px
+}
+.avatar{
+  width:82px;height:82px;border-radius:24px;background:linear-gradient(135deg,rgba(0,201,107,.16),rgba(26,107,255,.16));
+  display:flex;align-items:center;justify-content:center;font-size:34px;margin-bottom:16px
+}
+.name{font-size:28px;font-family:'Instrument Serif',serif;line-height:1.1;margin-bottom:6px}
+.role{font-size:13px;color:var(--g-dark);font-weight:700;margin-bottom:14px;text-transform:uppercase;letter-spacing:.08em}
+.copy{font-size:14px;color:var(--mu)}
+.link-list{display:grid;gap:10px;margin-top:18px}
+.link-item{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;
+  background:var(--paper2);border:1px solid var(--line);border-radius:14px
+}
+.link-label{font-size:13px;color:var(--mu);font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.link-value{font-size:14px;font-weight:600;color:var(--text);word-break:break-word}
+.footer{
+  background:var(--ink);color:#fff;padding:46px 0 28px;margin-top:28px
+}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:24px}
+.footer h4{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.38);margin-bottom:14px}
+.footer p,.footer a{color:rgba(255,255,255,.62);font-size:14px}
+.footer a:hover{color:#fff}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.08);margin-top:26px;padding-top:18px;color:rgba(255,255,255,.42);font-size:13px}
+.reveal{opacity:0;transform:translateY(18px);transition:.6s ease}
+.reveal.in{opacity:1;transform:none}
+@media(max-width:980px){
+  .hero-inner,.grid-2,.founder,.footer-grid{grid-template-columns:1fr}
+}
+@media(max-width:720px){
+  .metric-grid{grid-template-columns:1fr}
+  .step{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-in">
+    <div class="logo"><span class="logo-name">MardRisk AI</span></div>
+    <div class="nav-right">
+      <div class="lang-pill">
+        <button class="lpb on" data-l="en">EN</button>
+        <button class="lpb" data-l="hy">ՀՅ</button>
+        <button class="lpb" data-l="ru">RU</button>
+      </div>
+      <a class="btn btn-outline" href="index.html" data-i18n="backHome">Back Home</a>
+      <a class="btn btn-dark" href="https://t.me/MardRiskAI_bot" target="_blank" data-i18n="openBot">Open Bot ↗</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="reveal">
+        <div class="eyebrow"><span class="dot"></span><span data-i18n="aboutEyebrow">About MardRisk AI</span></div>
+        <h1 data-i18n-html="heroTitle">Understand what <em>MardRisk AI</em> really is.</h1>
+        <p class="hero-sub" data-i18n="heroSub">This page explains what MardRisk AI does, what kind of product it is, and who is building it.</p>
+      </div>
+      <div class="hero-card reveal">
+        <div class="mini-badge"><span>🛡️</span><span data-i18n="snapshot">Product Snapshot</span></div>
+        <p data-i18n="snapshotText">MardRisk AI is a financial risk assistant that helps people understand danger before they spend, borrow, or make a costly money decision.</p>
+        <div class="metric-grid">
+          <div class="metric-card"><div class="metric-num">3</div><div class="metric-copy" data-i18n="metric1">Languages supported</div></div>
+          <div class="metric-card"><div class="metric-num">Web</div><div class="metric-copy" data-i18n="metric2">Website and web experience</div></div>
+          <div class="metric-card"><div class="metric-num">TG</div><div class="metric-copy" data-i18n="metric3">Telegram bot and app flow</div></div>
+          <div class="metric-card"><div class="metric-num">AI</div><div class="metric-copy" data-i18n="metric4">Risk analysis and smart guidance</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-label reveal" data-i18n="mardriskLabel">About MardRisk</div>
+    <h2 class="section-h reveal" data-i18n-html="mardriskTitle">What <em>MardRisk AI</em> is</h2>
+    <p class="section-s reveal" data-i18n="mardriskSub">MardRisk AI is a financial assistant focused on risk clarity. Instead of only showing expenses or generic advice, it tries to explain how risky a user’s financial situation is and why a purchase, loan, or habit may become dangerous.</p>
+
+    <div class="timeline">
+      <div class="step reveal"><div class="step-num">1</div><div><h3 data-i18n="step1h">Risk Score</h3><p data-i18n="step1p">It gives users a fast personal financial risk score based on income, spending pressure, debt, and financial stability.</p></div></div>
+      <div class="step reveal"><div class="step-num">2</div><div><h3 data-i18n="step2h">Buy Check</h3><p data-i18n="step2p">It helps evaluate whether a purchase is safe, risky, or better postponed according to the user’s real situation.</p></div></div>
+      <div class="step reveal"><div class="step-num">3</div><div><h3 data-i18n="step3h">Loan Intelligence</h3><p data-i18n="step3p">It can analyze loans, debt pressure, and repayment burden, then provide clearer recommendations.</p></div></div>
+      <div class="step reveal"><div class="step-num">4</div><div><h3 data-i18n="step4h">Multilingual AI Experience</h3><p data-i18n="step4p">MardRisk AI is designed to work in English, Armenian, and Russian so more users can understand financial risk in their own language.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#fff">
+  <div class="container">
+    <div class="section-label reveal" data-i18n="founderLabel">Founder</div>
+    <h2 class="section-h reveal" data-i18n-html="founderTitle">Who founded <em>MardRisk AI</em></h2>
+    <p class="section-s reveal" data-i18n="founderSub">MardRisk AI was founded by Khachatur Kurghinyan.</p>
+
+    <div class="founder">
+      <div class="founder-card reveal">
+        <div class="avatar">👤</div>
+        <div class="name">Khachatur Kurghinyan</div>
+        <div class="role" data-i18n="founderRole">Founder</div>
+        <div class="copy" data-i18n="founderCopy">Khachatur Kurghinyan is the founder of MardRisk AI and the person behind the vision of making financial risk easier to understand through AI-powered tools.</div>
+      </div>
+
+      <div class="socials-card reveal">
+        <h3 class="card-h" data-i18n="founderLinksTitle">Founder Links</h3>
+        <p class="card-p" data-i18n="founderLinksSub">Official public pages connected to the founder.</p>
+        <div class="link-list">
+          <a class="link-item" href="https://www.linkedin.com/in/khachatur-kurghinyan/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="link-label">LinkedIn</div>
+              <div class="link-value">khachatur-kurghinyan</div>
+            </div>
+            <span>↗</span>
+          </a>
+          <a class="link-item" href="https://instagram.com/x.kurghinyan" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="link-label">Instagram</div>
+              <div class="link-value">x.kurghinyan</div>
+            </div>
+            <span>↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-label reveal" data-i18n="socialsLabel">Socials</div>
+    <h2 class="section-h reveal" data-i18n-html="socialsTitle">Official <em>MardRisk AI</em> social pages</h2>
+    <p class="section-s reveal" data-i18n="socialsSub">These are the project social channels that can be shown on the About page.</p>
+
+    <div class="grid-2">
+      <a class="card reveal" href="https://instagram.com/mardrisk.ai" target="_blank" rel="noopener noreferrer">
+        <div class="card-h">Instagram</div>
+        <div class="card-p">mardrisk.ai</div>
+      </a>
+      <a class="card reveal" href="https://www.linkedin.com/company/mardrisk-ai/" target="_blank" rel="noopener noreferrer">
+        <div class="card-h">LinkedIn</div>
+        <div class="card-p">company/mardrisk-ai</div>
+      </a>
+      <a class="card reveal" href="https://facebook.com/mardrisk-ai" target="_blank" rel="noopener noreferrer">
+        <div class="card-h">Facebook</div>
+        <div class="card-p">mardrisk-ai</div>
+      </a>
+      <a class="card reveal" href="https://t.me/MardRiskAI_bot" target="_blank" rel="noopener noreferrer">
+        <div class="card-h">Telegram</div>
+        <div class="card-p">@MardRiskAI_bot</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>MardRisk AI</h4>
+        <p data-i18n="footAbout">MardRisk AI is a multilingual financial risk assistant focused on clearer money decisions and better financial awareness.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footFounder">Founder</h4>
+        <p>Khachatur Kurghinyan</p>
+      </div>
+      <div>
+        <h4 data-i18n="footFollow">Follow</h4>
+        <p><a href="https://instagram.com/mardrisk.ai" target="_blank">Instagram</a></p>
+        <p><a href="https://www.linkedin.com/company/mardrisk-ai/" target="_blank">LinkedIn</a></p>
+        <p><a href="https://facebook.com/mardrisk-ai" target="_blank">Facebook</a></p>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 MardRisk AI</div>
+  </div>
+</footer>
+
+<script>
+const T = {
+  en: {
+    backHome:"Back Home",
+    openBot:"Open Bot ↗",
+    aboutEyebrow:"About MardRisk AI",
+    heroTitle:"Understand what <em>MardRisk AI</em> really is.",
+    heroSub:"This page explains what MardRisk AI does, what kind of product it is, and who is building it.",
+    snapshot:"Product Snapshot",
+    snapshotText:"MardRisk AI is a financial risk assistant that helps people understand danger before they spend, borrow, or make a costly money decision.",
+    metric1:"Languages supported",
+    metric2:"Website and web experience",
+    metric3:"Telegram bot and app flow",
+    metric4:"Risk analysis and smart guidance",
+    mardriskLabel:"About MardRisk",
+    mardriskTitle:"What <em>MardRisk AI</em> is",
+    mardriskSub:"MardRisk AI is a financial assistant focused on risk clarity. Instead of only showing expenses or generic advice, it tries to explain how risky a user’s financial situation is and why a purchase, loan, or habit may become dangerous.",
+    step1h:"Risk Score",
+    step1p:"It gives users a fast personal financial risk score based on income, spending pressure, debt, and financial stability.",
+    step2h:"Buy Check",
+    step2p:"It helps evaluate whether a purchase is safe, risky, or better postponed according to the user’s real situation.",
+    step3h:"Loan Intelligence",
+    step3p:"It can analyze loans, debt pressure, and repayment burden, then provide clearer recommendations.",
+    step4h:"Multilingual AI Experience",
+    step4p:"MardRisk AI is designed to work in English, Armenian, and Russian so more users can understand financial risk in their own language.",
+    founderLabel:"Founder",
+    founderTitle:"Who founded <em>MardRisk AI</em>",
+    founderSub:"MardRisk AI was founded by Khachatur Kurghinyan.",
+    founderRole:"Founder",
+    founderCopy:"Khachatur Kurghinyan is the founder of MardRisk AI and the person behind the vision of making financial risk easier to understand through AI-powered tools.",
+    founderLinksTitle:"Founder Links",
+    founderLinksSub:"Official public pages connected to the founder.",
+    socialsLabel:"Socials",
+    socialsTitle:"Official <em>MardRisk AI</em> social pages",
+    socialsSub:"These are the project social channels that can be shown on the About page.",
+    footAbout:"MardRisk AI is a multilingual financial risk assistant focused on clearer money decisions and better financial awareness.",
+    footFounder:"Founder",
+    footFollow:"Follow"
+  },
+  hy: {
+    backHome:"Վերադառնալ գլխավոր էջ",
+    openBot:"Բացել բոտը ↗",
+    aboutEyebrow:"MardRisk AI-ի մասին",
+    heroTitle:"Հասկացիր, թե ինչ է <em>MardRisk AI</em>-ը։",
+    heroSub:"Այս էջը բացատրում է, թե ինչ է անում MardRisk AI-ը, ինչպիսի պրոդուկտ է այն և ով է այն ստեղծում։",
+    snapshot:"Արագ նկարագիր",
+    snapshotText:"MardRisk AI-ը ֆինանսական ռիսկի օգնական է, որը օգնում է հասկանալ վտանգը մինչև ծախսելը, վարկ վերցնելը կամ թանկ արժեցող որոշում կայացնելը։",
+    metric1:"Աջակցվող լեզուներ",
+    metric2:"Կայք և վեբ փորձ",
+    metric3:"Telegram բոտ և app հոսք",
+    metric4:"Ռիսկի վերլուծություն և խելացի guidance",
+    mardriskLabel:"MardRisk-ի մասին",
+    mardriskTitle:"Ինչ է իրենից ներկայացնում <em>MardRisk AI</em>-ը",
+    mardriskSub:"MardRisk AI-ը ֆինանսական օգնական է, որը կենտրոնացած է ռիսկի հստակության վրա։ Այն ոչ միայն ցույց է տալիս ծախսերը կամ ընդհանուր խորհուրդներ, այլ փորձում է բացատրել, թե որքան ռիսկային է մարդու ֆինանսական վիճակը և ինչու կարող է գնումը, վարկը կամ սովորությունը դառնալ վտանգավոր։",
+    step1h:"Ռիսկի միավոր",
+    step1p:"Այն տալիս է արագ անձնական ֆինանսական ռիսկի միավոր՝ հիմնված եկամտի, ծախսերի ճնշման, պարտքերի և ֆինանսական կայունության վրա։",
+    step2h:"Buy Check",
+    step2p:"Այն օգնում է հասկանալ՝ արդյոք գնումը անվտանգ է, ռիսկային է, թե ավելի լավ է հետաձգել։",
+    step3h:"Վարկերի վերլուծություն",
+    step3p:"Այն կարող է վերլուծել վարկերը, պարտքային ճնշումը և մարման բեռը, հետո տալ ավելի հստակ խորհուրդներ։",
+    step4h:"Բազմալեզու AI փորձ",
+    step4p:"MardRisk AI-ը նախագծված է աշխատելու անգլերեն, հայերեն և ռուսերեն, որպեսզի ավելի շատ մարդիկ հասկանան ֆինանսական ռիսկը իրենց լեզվով։",
+    founderLabel:"Հիմնադիր",
+    founderTitle:"Ով է հիմնադրել <em>MardRisk AI</em>-ը",
+    founderSub:"MardRisk AI-ի հիմնադիրը Խաչատուր Կուրղինյանն է։",
+    founderRole:"Հիմնադիր",
+    founderCopy:"Խաչատուր Կուրղինյանը MardRisk AI-ի հիմնադիրն է և այն մարդը, ով ձևավորում է տեսլականը՝ AI գործիքների միջոցով ֆինանսական ռիսկը ավելի հասկանալի դարձնելու համար։",
+    founderLinksTitle:"Հիմնադրի հղումներ",
+    founderLinksSub:"Հիմնադրի պաշտոնական հանրային էջերը։",
+    socialsLabel:"Սոց ցանցեր",
+    socialsTitle:"Պաշտոնական <em>MardRisk AI</em> էջերը",
+    socialsSub:"Սրանք նախագծի սոց ցանցերն են, որոնք կարելի է ներկայացնել About էջում։",
+    footAbout:"MardRisk AI-ը բազմալեզու ֆինանսական ռիսկի օգնական է, որը կենտրոնացած է ավելի հստակ փողային որոշումների և ավելի լավ ֆինանսական իրազեկման վրա։",
+    footFounder:"Հիմնադիր",
+    footFollow:"Հետևել"
+  },
+  ru: {
+    backHome:"Назад на главную",
+    openBot:"Открыть бота ↗",
+    aboutEyebrow:"О MardRisk AI",
+    heroTitle:"Поймите, что такое <em>MardRisk AI</em> на самом деле.",
+    heroSub:"Эта страница объясняет, что делает MardRisk AI, каким продуктом он является и кто его создает.",
+    snapshot:"Кратко о продукте",
+    snapshotText:"MardRisk AI — это помощник по финансовому риску, который помогает понять опасность до того, как человек потратит деньги, возьмёт кредит или примет дорогое решение.",
+    metric1:"Поддерживаемые языки",
+    metric2:"Сайт и веб-опыт",
+    metric3:"Telegram-бот и app flow",
+    metric4:"Анализ риска и умные рекомендации",
+    mardriskLabel:"О MardRisk",
+    mardriskTitle:"Что представляет собой <em>MardRisk AI</em>",
+    mardriskSub:"MardRisk AI — это финансовый помощник, сфокусированный на ясности риска. Он не только показывает расходы или общие советы, а пытается объяснить, насколько рискованно финансовое положение пользователя и почему покупка, кредит или привычка могут стать опасными.",
+    step1h:"Риск-скор",
+    step1p:"Он даёт быстрый персональный финансовый риск-скор на основе дохода, давления расходов, долгов и финансовой стабильности.",
+    step2h:"Buy Check",
+    step2p:"Он помогает понять, безопасна ли покупка, рискованна ли она или её лучше отложить.",
+    step3h:"Анализ кредитов",
+    step3p:"Он может анализировать кредиты, долговую нагрузку и тяжесть выплат, а затем давать более понятные рекомендации.",
+    step4h:"Мультиязычный AI-опыт",
+    step4p:"MardRisk AI создан для работы на английском, армянском и русском языках, чтобы больше людей могли понимать финансовый риск на своём языке.",
+    founderLabel:"Основатель",
+    founderTitle:"Кто основал <em>MardRisk AI</em>",
+    founderSub:"MardRisk AI был основан Хачатуром Кургиняном.",
+    founderRole:"Основатель",
+    founderCopy:"Хачатур Кургинян — основатель MardRisk AI и человек, стоящий за видением сделать финансовый риск более понятным с помощью AI-инструментов.",
+    founderLinksTitle:"Ссылки основателя",
+    founderLinksSub:"Официальные публичные страницы, связанные с основателем.",
+    socialsLabel:"Соцсети",
+    socialsTitle:"Официальные страницы <em>MardRisk AI</em>",
+    socialsSub:"Это социальные каналы проекта, которые можно показать на странице About.",
+    footAbout:"MardRisk AI — это многоязычный помощник по финансовому риску, ориентированный на более понятные денежные решения и лучшую финансовую осведомленность.",
+    footFounder:"Основатель",
+    footFollow:"Следить"
+  }
+};
+
+let lang = localStorage.getItem("mardrisk_about_lang") || localStorage.getItem("mardrisk_site_lang") || "en";
+function applyLang(l){
+  lang = l;
+  localStorage.setItem("mardrisk_about_lang", l);
+  document.documentElement.lang = l;
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const k = el.dataset.i18n;
+    if (T[l] && T[l][k] !== undefined) el.textContent = T[l][k];
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach(el => {
+    const k = el.dataset.i18nHtml;
+    if (T[l] && T[l][k] !== undefined) el.innerHTML = T[l][k];
+  });
+  document.querySelectorAll(".lpb").forEach(btn => btn.classList.toggle("on", btn.dataset.l === l));
+}
+applyLang(lang);
+document.querySelectorAll(".lpb").forEach(btn => btn.addEventListener("click", () => applyLang(btn.dataset.l)));
+const io = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add("in"); }); }, {threshold:.12});
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
+</body>
+</html>

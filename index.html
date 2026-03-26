@@ -1103,6 +1103,17 @@ footer{
 }
 
   
+
+/* === Added bug fixes === */
+html, body { max-width: 100%; overflow-x: hidden; }
+section, div, a, button, input, textarea, select { max-width: 100%; }
+@media (hover:none), (pointer:coarse){
+  body, button, .btn, .lpb, .ham, .orb-btn, .voice-play-btn, .vl-btn, .btn-shock, .btn-cta-main, .btn-cta-ghost { cursor:auto !important; }
+  #cursor, #cursor-ring { display:none !important; }
+}
+.mob-overlay .btn{cursor:pointer !important;}
+nav a, .btn, button { word-break: break-word; }
+
 </style>
 
 
@@ -1134,6 +1145,7 @@ footer{
       <a href="#how">How It Works</a>
       <a href="#voice">Voice AI</a>
       <a href="#pricing">Pricing</a>
+      <a href="about.html" id="navAbout">About</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="nav-right">
@@ -1154,6 +1166,7 @@ footer{
   <a href="#how" onclick="cM()">How It Works</a>
   <a href="#voice" onclick="cM()">Voice AI</a>
   <a href="#pricing" onclick="cM()">Pricing</a>
+  <a href="about.html" id="mNavAbout">About</a>
   <a href="#contact" onclick="cM()">Contact</a>
   <a href="https://t.me/MardRiskAI_bot" target="_blank" class="btn btn-dark" style="margin-top:16px;">🚀 <span id="mNavCta">Open Telegram Bot</span></a>
   <div class="mob-lp" id="mobLP">
@@ -1630,7 +1643,7 @@ footer{
     </div>
   </div>
   <div class="foot-bottom">
-    <span>© 2025 MardRisk AI. All rights reserved.</span>
+    <span>© 2026 MardRisk AI. All rights reserved.</span>
     <span>Built with ❤️ in 🇦🇲 Armenia</span>
   </div>
 </footer>
@@ -2053,6 +2066,22 @@ function applyLang(l){
   tks.forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=d[id];});
 }
 document.querySelectorAll('[data-l]').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.l)));
+</script>
+<script>
+// Added About translations
+(function(){
+  const navAbout = document.getElementById('navAbout');
+  const mNavAbout = document.getElementById('mNavAbout');
+  const applyAboutLang = (lang) => {
+    const map = { en:'About', hy:'Մեր մասին', ru:'О нас' };
+    if(navAbout) navAbout.textContent = map[lang] || map.en;
+    if(mNavAbout) mNavAbout.textContent = map[lang] || map.en;
+  };
+  applyAboutLang(localStorage.getItem('lang') || 'en');
+  document.querySelectorAll('[data-l]').forEach(btn => {
+    btn.addEventListener('click', () => setTimeout(() => applyAboutLang(btn.dataset.l), 0));
+  });
+})();
 </script>
 </body>
 </html>
