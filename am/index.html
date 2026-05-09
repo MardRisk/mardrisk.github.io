@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MardRisk AI — Ֆինանսական Ռիսկերի Արհեստական Բանականություն</title>
+<meta name="description" content="MardRisk AI-ն 5 վայրկյանում տալիս է ձեր անձնական ռիսկի գնահատականը — իմացեք, թե ինչ է արժենում յուրաքանչյուր ֆինանսական որոշում, նախքան այն կայացնելը:">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<div class="noise-overlay"></div>
+<div id="loader">
+  <div class="loader-brand">MardRisk AI</div>
+  <div class="loader-percent">0%</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-tagline">Ձեր առցանց ֆինանսական ուղեկիցը</div>
+</div>
+
+<nav>
+  <a class="nav-brand" href="index.html">Mard<span>Risk</span> AI</a>
+  <ul class="nav-links">
+    <li><a href="#features">Հնարավորություններ</a></li>
+    <li><a href="#how">Ինչպես է աշխատում</a></li>
+    <li><a href="#pricing">Գներ</a></li>
+    <li><a href="about/index.html">Մեր մասին</a></li>
+    <li><a href="privacy/index.html">Գաղտնիություն</a></li>
+  </ul>
+  <div class="lang-switcher">
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn active" data-lang="am">ՀՅ</button>
+    <button class="lang-btn" data-lang="ru">RU</button>
+  </div>
+  <a class="nav-cta" href="https://t.me/MardRiskAI_bot" target="_blank">✈ Բացել բոտը</a>
+  <div class="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="mobile-menu">
+  <button class="mobile-close">✕</button>
+  <a href="#features">Հնարավորություններ</a>
+  <a href="#how">Ինչպես է աշխատում</a>
+  <a href="#pricing">Գներ</a>
+  <a href="about/index.html">Մեր մասին</a>
+  <a href="privacy/index.html">Գաղտնիություն</a>
+  <a href="https://t.me/MardRiskAI_bot" target="_blank" style="color:var(--gold)">Բոտ ↗</a>
+</div>
+
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-particles"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">Ձեր առցանց ֆինանսական ուղեկիցը — 1,000+ պաշտպանված օգտատեր</div>
+    <h1 class="hero-h1">
+      Իմացեք ձեր<br>
+      <em>ֆինանսական ռիսկը</em><br>
+      <strong>նախքան ուշ կլինի:</strong>
+    </h1>
+    <p class="hero-sub">
+      MardRisk AI-ն 5 վայրկյանից էլ կարճ ժամանակում տալիս է ձեր անձնական ռիսկի 
+      գնահատականը — որպեսզի ծախսի, վարկի և խնայողության յուրաքանչյուր 
+      որոշում հիմնված լինի իրական հետախուզության, ոչ թե ենթադրությունների վրա:
+    </p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="https://app.mardriskai.online" target="_blank">🌐 Բացել Վեբ հավելվածը</a>
+      <a class="btn-secondary" href="https://t.me/MardRiskAI_bot" target="_blank">✈ Telegram-ով Փորձել</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num" data-count="1000" data-suffix="+">1000+</span>
+        <span class="stat-label">Պաշտպանված օգտատեր</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-count="5" data-suffix="վ">5վ</span>
+        <span class="stat-label">Արագ գնահատական</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-count="3">3</span>
+        <span class="stat-label">Լեզու</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num" data-count="0" data-suffix="$">$0</span>
+        <span class="stat-label">Սկսելու համար</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="risk-card">
+      <div class="risk-card-header">
+        <div class="risk-card-avatar">M</div>
+        <div>
+          <div class="risk-card-name">MardRisk AI</div>
+          <div class="risk-card-status">առցանց</div>
+        </div>
+      </div>
+      <div class="risk-score-ring">
+        <svg viewBox="0 0 100 100">
+          <circle class="ring-bg" cx="50" cy="50" r="45"/>
+          <circle class="ring-fill" cx="50" cy="50" r="45"/>
+        </svg>
+        <div class="ring-label">
+          <span class="ring-num">72</span>
+          <span class="ring-text">Ռիսկ</span>
+        </div>
+      </div>
+      <div class="risk-bars">
+        <div class="risk-bar-item">
+          <div class="risk-bar-label"><span>Գերծախս</span><span>82%</span></div>
+          <div class="risk-bar-track"><div class="risk-bar-fill bar-red" style="--target-w:82%"></div></div>
+        </div>
+        <div class="risk-bar-item">
+          <div class="risk-bar-label"><span>Բաժանորդագրություններ</span><span>67%</span></div>
+          <div class="risk-bar-track"><div class="risk-bar-fill bar-amber" style="--target-w:67%"></div></div>
+        </div>
+        <div class="risk-bar-item">
+          <div class="risk-bar-label"><span>Խնայողություն</span><span>12%</span></div>
+          <div class="risk-bar-track"><div class="risk-bar-fill bar-green" style="--target-w:12%"></div></div>
+        </div>
+      </div>
+      <div class="risk-alert">💸 Այս տեմպով 2 ամսում կկորցնեք $400:</div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <div class="marquee-item"><span>📊</span> Անձնական Ռիսկ</div>
+    <div class="marquee-item"><span>🛒</span> Գնման Ռիսկ</div>
+    <div class="marquee-item"><span>🧠</span> ԱԲ Խորհրդատու</div>
+    <div class="marquee-item"><span>🎙️</span> Ձայնային ԱԲ</div>
+    <div class="marquee-item"><span>🌐</span> 3 Լեզու</div>
+    <div class="marquee-item"><span>🔒</span> Տվյալներ չեն պահվում</div>
+    <div class="marquee-item"><span>⚡</span> Ակնթարթային</div>
+    <div class="marquee-item"><span>💰</span> Անվճար</div>
+    <div class="marquee-item"><span>📊</span> Անձնական Ռիսկ</div>
+    <div class="marquee-item"><span>🛒</span> Գնման Ռիսկ</div>
+    <div class="marquee-item"><span>🧠</span> ԱԲ Խորհրդատու</div>
+    <div class="marquee-item"><span>🎙️</span> Ձայնային ԱԲ</div>
+    <div class="marquee-item"><span>🌐</span> 3 Լեզու</div>
+    <div class="marquee-item"><span>🔒</span> Տվյալներ չեն պահվում</div>
+    <div class="marquee-item"><span>⚡</span> Ակնթարթային</div>
+    <div class="marquee-item"><span>💰</span> Անվճար</div>
+  </div>
+</div>
+
+<div class="stats-strip">
+  <div class="stat-block reveal">
+    <span class="stat-big" data-count="87" data-suffix="%">87%</span>
+    <div class="stat-desc">մարդ ամեն շաբաթ վատ ֆինանսական որոշումներ է կայացնում</div>
+  </div>
+  <div class="stat-block reveal reveal-delay-1">
+    <span class="stat-big" data-count="5" data-suffix="վ">5վ</span>
+    <div class="stat-desc">ռիսկի գնահատական ստանալու միջին ժամանակ</div>
+  </div>
+  <div class="stat-block reveal reveal-delay-2">
+    <span class="stat-big" data-count="1000" data-suffix="+">1000+</span>
+    <div class="stat-desc">մարդ արդեն ստուգել է իր ռիսկի գնահատականը</div>
+  </div>
+  <div class="stat-block reveal reveal-delay-3">
+    <span class="stat-big" data-count="3">3</span>
+    <div class="stat-desc">լեզու — Հայերեն, Անգլերեն, Ռուսերեն</div>
+  </div>
+</div>
+
+<section id="features">
+  <div class="section-label">Հիմնական Հնարավորություններ</div>
+  <h2 class="section-h2 reveal">Վեց գործիք.<br><em>Մեկ հետախուզություն.</em></h2>
+  <p class="section-sub reveal reveal-delay-1">Ամեն ինչ, ինչ անհրաժեշտ է ֆինանսական վստահ որոշումներ կայացնելու համար — առանց բարդ հավելվածների կամ խորհրդատուների:</p>
+
+  <div class="features-grid">
+    <div class="feature-card big reveal">
+      <div>
+        <div class="feature-icon">📊</div>
+        <div class="feature-title">Անձնական Ռիսկի գնահատական</div>
+        <p class="feature-desc">0-ից 100 բալ իրական ժամանակում — վերլուծելով ձեր եկամուտը, ծախսերի ձևաչափը, պարտքերը և խնայողությունների տոկոսը: Մի հստակ թիվ, որն ասում է ճշմարտությունը:</p>
+        <span class="feature-tag">Հիմնական Հնարավորություն</span>
+      </div>
+      <div class="feature-visual">
+        <div class="chat-demo">
+          <div class="chat-header">
+            <div class="chat-avatar">M</div>
+            <div>
+              <div class="chat-title">MardRisk AI</div>
+              <div class="chat-sub">● առցանց</div>
+            </div>
+          </div>
+          <div class="chat-messages">
+            <div class="chat-msg bot">👋 Պատմեք ձեր ամսական եկամտի ու ծախսերի մասին:</div>
+            <div class="chat-msg user">Աշխատավարձ $2,000: Սննդի վրա $400, բաժանորդագրություններ $200:</div>
+            <div class="chat-msg bot">⚠️ Վերլուծությունն ավարտված է</div>
+            <div class="chat-result">
+              <div class="chat-score-big">84</div>
+              <div style="color:var(--red);font-size:0.75rem;font-family:var(--font-sans);font-weight:700;margin:4px 0">🔴 ԲԱՐՁՐ ՌԻՍԿ — 100-ից</div>
+              <div style="font-size:0.72rem;color:var(--text-muted)">💸 Այս տեմպով 2 ամսում կկորցնեք $400:</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-card reveal reveal-delay-1">
+      <div class="feature-icon">🛒</div>
+      <div class="feature-title">Գնման Ռիսկի Ստուգում</div>
+      <p class="feature-desc">Նախքան ցանկացած գնում կատարելը — նկարագրեք ապրանքն ու գինը: Ստացեք կանաչ, դեղին կամ կարմիր ազդանշան` հիմնված ձեր իրական ֆինանսական վիճակի վրա:</p>
+      <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap">
+        <span style="padding:5px 12px;background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);border-radius:100px;font-size:0.72rem;color:var(--green);font-family:var(--font-sans);font-weight:600">🟢 Անվտանգ</span>
+        <span style="padding:5px 12px;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.3);border-radius:100px;font-size:0.72rem;color:var(--amber);font-family:var(--font-sans);font-weight:600">🟡 Ռիսկային</span>
+        <span style="padding:5px 12px;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.3);border-radius:100px;font-size:0.72rem;color:var(--red);font-family:var(--font-sans);font-weight:600">🔴 Խուսափեք</span>
+      </div>
+    </div>
+
+    <div class="feature-card reveal reveal-delay-2">
+      <div class="feature-icon">🎙️</div>
+      <div class="feature-title">Ձայնային ԱԲ Խորհրդատու</div>
+      <p class="feature-desc">Հարցրեք ձայնով, ստացեք պատասխան: Ֆինանսական վերլուծություն ձեռքերն ազատ` հայերենով, ռուսերենով կամ անգլերենով: 3 վայրկյան, բնական խոսք:</p>
+      <span class="feature-tag">Նոր</span>
+    </div>
+
+    <div class="feature-card reveal">
+      <div class="feature-icon">🌐</div>
+      <div class="feature-title">3 լեզվով ԱԲ</div>
+      <p class="feature-desc">Լիարժեք տիրապետություն հայերենի, անգլերենի և ռուսերենի: Փոխեք լեզուն զրույցի ժամանակ` ԱԲ-ն երբեք չի կորցնում կոնտեքստը:</p>
+      <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap">
+        <span style="padding:5px 12px;background:var(--gold-dim);border:1px solid var(--border);border-radius:100px;font-size:0.72rem;color:var(--gold);font-family:var(--font-sans);font-weight:600">🇦🇲 Հայերեն</span>
+        <span style="padding:5px 12px;background:var(--gold-dim);border:1px solid var(--border);border-radius:100px;font-size:0.72rem;color:var(--gold);font-family:var(--font-sans);font-weight:600">🇬🇧 Անգլերեն</span>
+        <span style="padding:5px 12px;background:var(--gold-dim);border:1px solid var(--border);border-radius:100px;font-size:0.72rem;color:var(--gold);font-family:var(--font-sans);font-weight:600">🇷🇺 Ռուսերեն</span>
+      </div>
+    </div>
+
+    <div class="feature-card reveal reveal-delay-1">
+      <div class="feature-icon">🔒</div>
+      <div class="feature-title">Գաղտնիությունը՝ նախագծման հիմքում</div>
+      <p class="feature-desc">Ձեր ֆինանսական տվյալները մնում են Telegram-ի ձեր չատում: Տվյալների հավաքում — չկա: Հաշիվ — հարկ չկա: Հետևում — չկա:</p>
+    </div>
+
+    <div class="feature-card reveal reveal-delay-2" style="border-style:dashed">
+      <div class="feature-icon">🖥️</div>
+      <div class="feature-title">Վեբ հավելված</div>
+      <p class="feature-desc">Ամբողջական վեբ-ինտերֆեյս app.mardriskai.online-ում — հետևեք պատմությանը, դիտեք վիճակագրություն, կառավարեք բյուջե: Telegram-ի կարիք չկա:</p>
+      <span class="feature-tag">Հասանելի է</span>
+    </div>
+  </div>
+</section>
+
+<section class="how-section" id="how">
+  <div class="section-label">Գործընթաց</div>
+  <h2 class="section-h2 reveal">Հարցից<br><em>պատասխան</em> 30 վայրկյանում:</h2>
+  <div class="steps-list">
+    <div class="step-item reveal">
+      <div class="step-num">01</div>
+      <div class="step-icon">💬</div>
+      <div class="step-title">Բացել բոտը</div>
+      <p class="step-desc">Գտնել @MardRiskAI_bot-ը Telegram-ում: Սեղմեք «Սկսել» — գրանցում կամ էլ. փոստ հարկավոր չէ։</p>
+    </div>
+    <div class="step-item reveal reveal-delay-1">
+      <div class="step-num">02</div>
+      <div class="step-icon">🌐</div>
+      <div class="step-title">Ընտրել լեզուն</div>
+      <p class="step-desc">Ընտրել հայերեն, անգլերեն կամ ռուսերեն: Ցանկացած ժամանակ կարող եք փոխել:</p>
+    </div>
+    <div class="step-item reveal reveal-delay-2">
+      <div class="step-num">03</div>
+      <div class="step-icon">🗣️</div>
+      <div class="step-title">Նկարագրել ֆինանսները</div>
+      <p class="step-desc">Գրեք կամ ասեք բնական կերպով — եկամուտ, գնում, բյուջե: Ձևեր լրացնելու կարիք չկա:</p>
+    </div>
+    <div class="step-item reveal reveal-delay-3">
+      <div class="step-num">04</div>
+      <div class="step-icon">🧠</div>
+      <div class="step-title">ԱԲ-ն վերլուծում է</div>
+      <p class="step-desc">Ֆինանսական հետախուզությունը մշակում է ձեր տվյալը իրական ռիսկ-մոդելներով:</p>
+    </div>
+    <div class="step-item reveal reveal-delay-4">
+      <div class="step-num">05</div>
+      <div class="step-icon">📊</div>
+      <div class="step-title">Ռիսկ և խորհուրդ</div>
+      <p class="step-desc">0–100 ռիսկ, կատեգորիաների բաշխում ու կոնկրետ հաջորդ քայլեր։</p>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="section-label">Գներ</div>
+  <h2 class="section-h2 reveal">Պարզ,<br><em>ազնիվ</em> գներ:</h2>
+  <p class="section-sub reveal reveal-delay-1">Սկսեք անվճար: Ըստ անհրաժեշտության անցեք Պրո: Թաքնված վճարներ չկան:</p>
+
+  <div class="pricing-grid">
+    <div class="price-card reveal">
+      <div class="price-tier">Անվճար</div>
+      <div class="price-name">Սկսնակ</div>
+      <div class="price-desc">Ամեն ինչ` սկսելու համար</div>
+      <div class="price-amount">
+        <span class="price-dollar">$</span>
+        <span class="price-num">0</span>
+        <span class="price-period">/ հավերժ</span>
+      </div>
+      <ul class="price-features">
+        <li>Ռիսկի գնահատական</li>
+        <li>Գնման ստուգում</li>
+        <li>ԱԲ ֆինանսական խորհուրդ</li>
+        <li>3 Լեզու</li>
+        <li>Գրանցում հարկավոր չէ</li>
+        <li class="disabled">Ընդլայնված վիճակագրություն</li>
+        <li class="disabled">Ձայնային ԱԲ</li>
+        <li class="disabled">Ամսական հաշվետվություններ</li>
+      </ul>
+      <a class="btn-secondary" href="https://t.me/MardRiskAI_bot" target="_blank" style="width:100%;justify-content:center">Սկսել անվճար →</a>
+    </div>
+
+    <div class="price-card featured reveal reveal-delay-1">
+      <div class="price-badge">Ամենահայտնի</div>
+      <div class="price-tier">Պրո պլան</div>
+      <div class="price-name">Պրոֆեսիոնալ</div>
+      <div class="price-desc">Լուրջ ֆինանսական որոշումների համար</div>
+      <div class="price-amount">
+        <span class="price-dollar">$</span>
+        <span class="price-num">9.99</span>
+        <span class="price-period">/ ամիս</span>
+      </div>
+      <ul class="price-features">
+        <li>Ամեն ինչ անվճար պլանից</li>
+        <li>Անսահման հարցումներ</li>
+        <li>Ընդլայնված վիճակագրության գործիքներ</li>
+        <li>Ամսական ֆինանսական հաշվետվություն</li>
+        <li>Բյուջեի պլանավորման օգնական</li>
+        <li>Ռիսկի պատմության հետևում</li>
+        <li>🎙️ Ձայնային ԱԲ</li>
+        <li>Առաջնահերթ սպասարկում</li>
+      </ul>
+      <a class="btn-primary" href="https://t.me/MardRiskAI_bot" target="_blank" style="width:100%;justify-content:center">Ստանալ Պրո →</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <h2 class="section-h2 reveal">Հաջորդ ֆինանսական<br><em>որոշումը կայացրեք</em><br><strong>վստահությամբ։</strong></h2>
+  <p class="section-sub reveal reveal-delay-1">Գրանցում չի պահանջվում։ Բանկային քարտ պետք չէ։ Բացեք Telegram-ը, սկսեք բոտը և ստացեք ռիսկի գնահատականը 30 վայրկյանում։</p>
+  <div class="cta-actions reveal reveal-delay-2">
+    <a class="btn-primary" href="https://app.mardriskai.online" target="_blank">🌐 Բացել վեբ հավելվածը</a>
+    <a class="btn-secondary" href="https://t.me/MardRiskAI_bot" target="_blank">✈ Բացել Telegram-ում</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">Mard<span>Risk</span> AI</div>
+      <p class="footer-desc">Ձեր առցանց ֆինանսական ուղեկիցը։ ԱԲ-ով աշխատող ֆինանսական ռիսկի խորհրդատու, որը օգնում է հասկանալ ռիսկերը նախքան ծախսելը։ Ստեղծված է Հայաստանում։</p>
+      <div class="footer-socials">
+        <a class="social-icon" href="https://instagram.com/mardrisk.ai" target="_blank">📷</a>
+        <a class="social-icon" href="https://www.linkedin.com/company/mardrisk-ai/" target="_blank">💼</a>
+        <a class="social-icon" href="https://facebook.com/mardrisk-ai" target="_blank">📘</a>
+        <a class="social-icon" href="https://t.me/MardRiskAI_bot" target="_blank">✈</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Ապրանք</div>
+      <ul class="footer-links">
+        <li><a href="#features">Հնարավորություններ</a></li>
+        <li><a href="#how">Ինչպես է աշխատում</a></li>
+        <li><a href="#pricing">Գներ</a></li>
+        <li><a href="https://app.mardriskai.online" target="_blank">Վեբ հավելված</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Ընկերություն</div>
+      <ul class="footer-links">
+        <li><a href="about/index.html">Մեր մասին</a></li>
+        <li><a href="privacy/index.html">Գաղտնիության քաղաքականություն</a></li>
+        <li><a href="mailto:info@mardriskai.online">Կապ</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Լեզուներ</div>
+      <ul class="footer-links">
+        <li><a href="../en/index.html">🇬🇧 Անգլերեն</a></li>
+        <li><a href="index.html">🇦🇲 Հայերեն</a></li>
+        <li><a href="../ru/index.html">🇷🇺 Ռուսերեն</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 MardRisk AI. Բոլոր իրավունքները պաշտպանված են։</div>
+    <div class="footer-legal">
+      <a href="privacy/index.html">Գաղտնիություն</a>
+      <a href="about/index.html">Մեր մասին</a>
+      <a href="mailto:info@mardriskai.online">info@mardriskai.online</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
+
+
