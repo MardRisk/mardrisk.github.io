@@ -13,25 +13,17 @@ function setLang(lang) {
 }
 function getCurrentPage() {
   const path = window.location.pathname;
-  if (path.includes('/about/')) return 'about';
-  if (path.includes('/privacy/')) return 'privacy';
+  if (/\/about\/?$/.test(path) || path.includes('/about/')) return 'about';
+  if (/\/privacy\/?$/.test(path) || path.includes('/privacy/')) return 'privacy';
+  if (/\/course\/?$/.test(path) || path.includes('/course/')) return 'course';
+  if (/\/pay\/?$/.test(path) || path.includes('/pay/')) return 'pay';
   return 'index';
 }
 function switchLang(lang) {
   setLang(lang);
   const page = getCurrentPage();
-  const file = page === 'index' ? 'index.html' : page + '/index.html';
-  const parts = window.location.pathname.split('/');
-  const langIndex = parts.findIndex(part => LANGS.includes(part));
-
-  if (langIndex >= 0) {
-    parts[langIndex] = lang;
-    parts.splice(langIndex + 1, parts.length - langIndex - 1, ...file.split('/'));
-    window.location.href = parts.join('/') + window.location.search + window.location.hash;
-    return;
-  }
-
-  window.location.href = './' + lang + '/' + file;
+  const cleanPath = page === 'index' ? '/' + lang : '/' + lang + '/' + page;
+  window.location.href = cleanPath + window.location.search + window.location.hash;
 }
 function initLangButtons() {
   const current = detectLang();
@@ -227,3 +219,4 @@ document.addEventListener('DOMContentLoaded', () => {
   initMarquee();
   initLangButtons();
 });
+
