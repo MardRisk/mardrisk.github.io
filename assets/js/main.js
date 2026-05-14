@@ -15,6 +15,9 @@ function getCurrentPage() {
   const path = window.location.pathname;
   if (/\/about\/?$/.test(path) || path.includes('/about/')) return 'about';
   if (/\/privacy\/?$/.test(path) || path.includes('/privacy/')) return 'privacy';
+  if (/\/terms\/?$/.test(path) || path.includes('/terms/')) return 'terms';
+  if (/\/contact-us\/?$/.test(path) || path.includes('/contact-us/')) return 'contact-us';
+  if (/\/faq\/?$/.test(path) || path.includes('/faq/')) return 'faq';
   if (/\/course\/?$/.test(path) || path.includes('/course/')) return 'course';
   if (/\/pay\/?$/.test(path) || path.includes('/pay/')) return 'pay';
   return 'index';
@@ -219,4 +222,3 @@ document.addEventListener('DOMContentLoaded', () => {
   initMarquee();
   initLangButtons();
 });
-
