@@ -20,6 +20,13 @@ function getCurrentPage() {
   if (/\/faq\/?$/.test(path) || path.includes('/faq/')) return 'faq';
   if (/\/course\/?$/.test(path) || path.includes('/course/')) return 'course';
   if (/\/pay\/?$/.test(path) || path.includes('/pay/')) return 'pay';
+  if (/\/usecase\/?$/.test(path) || path.includes('/usecase/')) return 'usecase';
+  if (/\/pricing\/?$/.test(path) || path.includes('/pricing/')) return 'pricing';
+  if (/\/security\/?$/.test(path) || path.includes('/security/')) return 'security';
+  if (/\/changelog\/?$/.test(path) || path.includes('/changelog/')) return 'changelog';
+  if (/\/forbusiness\/?$/.test(path) || path.includes('/forbusiness/')) return 'forbusiness';
+  if (/\/careers\/?$/.test(path) || path.includes('/careers/')) return 'careers';
+  if (/\/api\/?$/.test(path) || path.includes('/api/')) return 'api';
   return 'index';
 }
 function switchLang(lang) {

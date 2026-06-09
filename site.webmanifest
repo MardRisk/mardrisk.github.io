@@ -1,0 +1,22 @@
+{
+  "name": "MardRisk 1.1",
+  "short_name": "MardRisk",
+  "description": "Financial LLM with real-time intelligence, 1000-scenario simulations, and MardRisk Shield.",
+  "icons": [
+    {
+      "src": "/assets/img/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/img/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#C9A84C",
+  "background_color": "#0A0C12",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
+}
