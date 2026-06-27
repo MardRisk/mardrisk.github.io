@@ -1,13 +1,12 @@
 User-agent: *
 Allow: /
 
+# Disallow non-content paths
+Disallow: /assets/
+Disallow: /pay/
+
 # Sitemap
-Sitemap: https://mardriskai.online/sitemap.xml
+Sitemap: https://mardriskai.com/sitemap.xml
 
-# Optional: Disallow unnecessary paths (if any)
-# Disallow: /assets/
-# Disallow: /*.css
-# Disallow: /*.js
-
-# Crawl delay (optional, for polite bots)
-Crawl-delay: 10
+# Crawl delay for polite bots
+Crawl-delay: 2

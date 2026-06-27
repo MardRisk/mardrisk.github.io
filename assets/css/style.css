@@ -466,6 +466,39 @@ nav.scrolled {
   transform: translateY(-1px);
 }
 
+.beta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(139,92,246,0.15));
+  border: 1px solid rgba(59,130,246,0.3);
+  border-radius: 100px;
+  font-size: 0.82rem;
+  color: #93C5FD;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: slideUp 0.8s 2.9s forwards;
+  font-family: var(--font-sans);
+  letter-spacing: 0.04em;
+  backdrop-filter: blur(8px);
+}
+.beta-badge strong {
+  color: #60A5FA;
+  font-weight: 700;
+}
+.beta-pulse {
+  width: 8px; height: 8px;
+  background: #3B82F6;
+  border-radius: 50%;
+  animation: betaPulse 1.5s ease infinite;
+  flex-shrink: 0;
+}
+@keyframes betaPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(59,130,246,0.6); }
+  50% { box-shadow: 0 0 0 8px rgba(59,130,246,0); }
+}
+
 .hero-stats {
   display: flex;
   gap: 40px;
@@ -1088,6 +1121,100 @@ section {
 .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
 /* =========================================
+   MODELS SECTION
+   ========================================= */
+.models-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-top: 72px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.model-card {
+  background: linear-gradient(155deg, var(--surface), var(--surface-2));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 44px 36px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.model-card:hover {
+  border-color: var(--border);
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+}
+.model-card-featured {
+  border-color: rgba(59,130,246,0.3);
+  background: linear-gradient(155deg, var(--surface-2), rgba(30,58,138,0.15));
+}
+.model-card-featured:hover {
+  border-color: #3B82F6;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 40px rgba(59,130,246,0.1);
+}
+.model-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 14px;
+  background: rgba(16,185,129,0.12);
+  border: 1px solid rgba(16,185,129,0.25);
+  border-radius: 100px;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #10B981;
+  width: fit-content;
+}
+.model-badge-beta {
+  background: rgba(59,130,246,0.12);
+  border-color: rgba(59,130,246,0.25);
+  color: #60A5FA;
+}
+.model-icon {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+.model-name {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.1;
+}
+.model-card-featured .model-name {
+  background: linear-gradient(135deg, #93C5FD, #60A5FA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.model-desc {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  line-height: 1.7;
+  flex: 1;
+}
+.model-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.model-tags span {
+  font-size: 0.7rem;
+  padding: 4px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-dim);
+  font-family: var(--font-sans);
+}
+
+/* =========================================
    FOOTER
    ========================================= */
 footer {
@@ -1098,8 +1225,8 @@ footer {
 
 .footer-top {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 48px;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 32px;
   margin-bottom: 64px;
 }
 
@@ -1308,7 +1435,9 @@ footer {
   padding: 10px;
   transition: color 0.2s;
 }
-.mobile-close:hover { color: var(--gold); }
+  .mobile-close:hover { color: var(--gold); }
+  .models-grid { grid-template-columns: 1fr; gap: 20px; }
+  .model-card { padding: 28px 22px; }
 
 /* =========================================
    CHAT DEMO WIDGET
@@ -1657,6 +1786,7 @@ footer {
   .steps-list::before { display: none; }
   .hero-visual { display: none; }
   .footer-top { grid-template-columns: 1fr 1fr; }
+  .models-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
